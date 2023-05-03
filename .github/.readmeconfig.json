@@ -1,7 +1,7 @@
 {
 	"project.version": "1.0.0",
-	"project.information": "Monorepo template for big projects 🏗️",
-	"project.installation": ["To use this template, you will need the following: `yarn` and `node >= 18.12.1`."],
-	"project.icon": "https://ijskoud.dev/assets/svg/logo.svg",
+	"project.information": "Soon™️",
+	"project.installation": "Soon™️",
+	"project.icon": "https://raw.githubusercontent.com/snowcrystals/.github/main/logo.png",
 	"project.extra_info": ""
 }
