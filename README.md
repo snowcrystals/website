@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://ijskoud.dev/assets/svg/logo.svg" width="100px" />
+    <img src="https://raw.githubusercontent.com/snowcrystals/.github/main/logo.png" width="100px" />
     <h1>@snowcrystals/website</h1>
   
   <p>Guide & documentation websites for SnowCrystals 💻</p>
@@ -7,7 +7,7 @@
   <p align="center">
     <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg" />
     <a href="/LICENSE" target="_blank">
-      <img alt="License: None" src="https://img.shields.io/badge/License-None-yellow.svg" />
+      <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
     </a>
   </p>
 
@@ -20,11 +20,11 @@
 
 ## Information
 
-Monorepo template for big projects 🏗️
+Soon™️
 
 ## Install
 
-To use this template, you will need the following: `yarn` and `node >= 18.12.1`.
+Soon™️
 
 
 
@@ -43,6 +43,6 @@ This will always be open source project, even if I don't receive donations. But 
 
 ## License
 
-Project is licensed under the © [**None License**](/LICENSE)
+Project is licensed under the © [**MIT License**](/LICENSE)
 
 ---
