@@ -20,7 +20,9 @@
 
 ## Information
 
-Soon™️
+<a href="https://vercel.com/?utm_source=snowcrystals&utm_campaign=oss" target="_blank">
+<img src="/vercel.svg" width="20%">
+</a>
 
 ## Install
 
