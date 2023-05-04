@@ -39,6 +39,9 @@
 		"turbo": "^1.9.3",
 		"typescript": "5.0.4"
 	},
+	"dependencies": {
+		"next-themes": "^0.2.1"
+	},
 	"engines": {
 		"node": ">= v18.16.0"
 	},

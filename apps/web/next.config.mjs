@@ -6,7 +6,8 @@ const transpilePackages = readdirSync(join(process.cwd(), "..", "..", "packages"
 /** @type {import('next').NextConfig} */
 const config = {
 	reactStrictMode: true,
-	transpilePackages
+	transpilePackages,
+	experimental: { appDir: true }
 };
 
 export default config;
