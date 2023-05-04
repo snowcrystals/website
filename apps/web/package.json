@@ -11,6 +11,7 @@
 	},
 	"dependencies": {
 		"@website/fonts": "*",
+		"@website/svg": "*",
 		"@website/ui": "*",
 		"next": "13.3.4",
 		"react": "^18.2.0",
