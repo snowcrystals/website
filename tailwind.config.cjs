@@ -9,7 +9,12 @@ module.exports = {
 				.map((_, key) => ({ [key + 1]: [(key + 1) * 4] }))
 				.reduce((a, b) => ({ ...a, ...b }), {}),
 			borderColor: {},
-			colors: {}
+			colors: {
+				primary: "#73A2FE"
+			},
+			backgroundColor: {
+				dark: "#1C1C1C"
+			}
 		}
 	},
 	plugins: []

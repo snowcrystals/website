@@ -1,5 +1,5 @@
 {
-	"name": "@website/ui",
+	"name": "@website/svg",
 	"type": "module",
 	"version": "0.0.0",
 	"main": "./src/index.tsx",
@@ -7,9 +7,6 @@
 	"license": "MIT",
 	"scripts": {
 		"lint": "TIMING=1 eslint"
-	},
-	"dependencies": {
-		"@website/svg": "*"
 	},
 	"devDependencies": {
 		"@types/react": "^18.2.0",
