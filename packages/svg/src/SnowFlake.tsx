@@ -3,7 +3,7 @@ import React from "react";
 export const SnowFlake: React.FC = () => {
 	return (
 		<svg width="812" height="812" viewBox="0 0 812 812" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<g clip-path="url(#clip0_20_31)">
+			<g clipPath="url(#clip0_20_31)">
 				<mask id="mask0_20_31" style={{ maskType: "luminance" }} maskUnits="userSpaceOnUse" x="55" y="55" width="701" height="701">
 					<path d="M755.922 55.4937H55.4933V755.923H755.922V55.4937Z" fill="white" />
 				</mask>

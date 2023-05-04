@@ -953,6 +953,7 @@ __metadata:
     "@types/react-dom": ^18.2.1
     "@website/svg": "*"
     eslint: ^8.39.0
+    next: 13.3.4
     react: ^18.2.0
     typescript: ^5.0.4
   languageName: unknown
