@@ -1,10 +1,14 @@
 import React from "react";
 
-type ButtonType = React.FC<React.PropsWithChildren<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>>;
+export type BaseButtonProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+type ButtonType = React.FC<React.PropsWithChildren<BaseButtonProps>>;
+
 export const Button: ButtonType = ({ children, className, ...props }) => {
 	return (
 		<button
-			className={`${className ?? ""} border px-4 py-2 rounded-lg text-5 outline outline-transparent hover:outline-blue-500 transition-all`}
+			className={`${
+				className ?? ""
+			} border px-4 py-2 rounded-md text-5 font-medium outline outline-transparent hocus:outline-blue-500 focus:outline-[3px] transition-all`}
 			{...props}
 		>
 			{children}
