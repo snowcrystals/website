@@ -3860,33 +3860,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"monorepo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "monorepo@workspace:."
-  dependencies:
-    "@commitlint/cli": ^17.6.1
-    "@commitlint/config-angular": ^17.6.1
-    "@sapphire/eslint-config": ^4.4.2
-    "@sapphire/prettier-config": ^1.4.5
-    "@sapphire/ts-config": ^4.0.0
-    "@types/node": ^18.16.3
-    "@typescript-eslint/eslint-plugin": ^5.59.2
-    "@typescript-eslint/parser": ^5.59.2
-    eslint: ^8.39.0
-    eslint-config-next: ^13.3.4
-    eslint-config-prettier: ^8.8.0
-    eslint-plugin-prettier: ^4.2.1
-    husky: ^8.0.3
-    is-ci: ^3.0.1
-    lint-staged: ^13.2.2
-    next-themes: ^0.2.1
-    nodemon: ^2.0.22
-    prettier: ^2.8.8
-    turbo: ^1.9.3
-    typescript: 5.0.4
-  languageName: unknown
-  linkType: soft
-
 "ms@npm:2.0.0":
   version: 2.0.0
   resolution: "ms@npm:2.0.0"
@@ -5905,6 +5878,33 @@ __metadata:
     react-dom: ^18.2.0
     tailwindcss: ^3.3.2
     typescript: ^5.0.4
+  languageName: unknown
+  linkType: soft
+
+"website@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "website@workspace:."
+  dependencies:
+    "@commitlint/cli": ^17.6.1
+    "@commitlint/config-angular": ^17.6.1
+    "@sapphire/eslint-config": ^4.4.2
+    "@sapphire/prettier-config": ^1.4.5
+    "@sapphire/ts-config": ^4.0.0
+    "@types/node": ^18.16.3
+    "@typescript-eslint/eslint-plugin": ^5.59.2
+    "@typescript-eslint/parser": ^5.59.2
+    eslint: ^8.39.0
+    eslint-config-next: ^13.3.4
+    eslint-config-prettier: ^8.8.0
+    eslint-plugin-prettier: ^4.2.1
+    husky: ^8.0.3
+    is-ci: ^3.0.1
+    lint-staged: ^13.2.2
+    next-themes: ^0.2.1
+    nodemon: ^2.0.22
+    prettier: ^2.8.8
+    turbo: ^1.9.3
+    typescript: 5.0.4
   languageName: unknown
   linkType: soft
 

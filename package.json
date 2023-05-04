@@ -1,14 +1,14 @@
 {
-	"name": "monorepo",
+	"name": "website",
 	"version": "1.0.0",
-	"description": "Monorepo template for big projects 🏗️",
+	"description": "Guide & documentation websites for SnowCrystals 💻",
 	"author": "ijsKoud <github@ijskoud.dev>",
 	"license": "MIT",
 	"workspaces": [
 		"apps/*",
 		"packages/*"
 	],
-	"homepage": "https://github.com/ijsKoud/monorepo",
+	"homepage": "https://github.com/snowcrystals/website",
 	"scripts": {
 		"build": "turbo run build",
 		"start:dev": "turbo run dev --parallel",
