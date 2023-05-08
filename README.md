@@ -5,7 +5,9 @@
   <p>Guide & documentation websites for SnowCrystals 💻</p>
   
   <p align="center">
-    <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg" />
+    <a href="/">
+        <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg" />
+    </a>
     <a href="/LICENSE" target="_blank">
       <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
     </a>
