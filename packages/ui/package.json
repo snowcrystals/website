@@ -9,6 +9,7 @@
 		"lint": "TIMING=1 eslint"
 	},
 	"dependencies": {
+		"@heroicons/react": "^2.0.17",
 		"@website/svg": "*",
 		"next": "13.3.4"
 	},
