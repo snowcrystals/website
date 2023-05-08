@@ -7,10 +7,7 @@ const transpilePackages = readdirSync(join(process.cwd(), "..", "..", "packages"
 const config = {
 	reactStrictMode: true,
 	transpilePackages,
-	experimental: { appDir: true },
-	redirects: async () => {
-		return [{ source: "/docs", destination: "/docs/iglo/main", permanent: false }]; // TODO: remove temporary redirect
-	}
+	experimental: { appDir: true }
 };
 
 export default config;
