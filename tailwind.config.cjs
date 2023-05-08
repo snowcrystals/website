@@ -16,7 +16,11 @@ module.exports = {
 				.reduce((a, b) => ({ ...a, ...b }), {}),
 			borderColor: {},
 			colors: {
-				primary: "#73A2FE"
+				primary: "#73A2FE",
+				white: "#fff",
+
+				"markdown-dark": "#333333",
+				"markdown-light": "#d8dee4"
 			},
 			backgroundColor: {
 				dark: "#1C1C1C",

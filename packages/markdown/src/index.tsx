@@ -5,20 +5,24 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
 import { SyntaxHighlighter } from "./SyntaxHighlighter";
+import AnchorTag from "./AnchorTag";
 
 interface Props {
-	children: string;
+	/** The content to render */
+	content: string;
 
 	/** The full repository name
 	 * @example snowcrystals/website
 	 */
-	fullRepo: string;
+	fullName: string;
 
-	/** The version */
+	/** The documentation version
+	 * @example v1.0.0
+	 */
 	version: string;
 }
 
-const ReadmeMarkdown = ({ children, version, fullRepo }: Props) => {
+const ReadmeMarkdown = ({ content, fullName, version }: Props) => {
 	const options: MDXRemoteProps["options"] = {
 		mdxOptions: {
 			remarkPlugins: [remarkGfm],
@@ -31,7 +35,12 @@ const ReadmeMarkdown = ({ children, version, fullRepo }: Props) => {
 	return (
 		<div className="max-w-prose markdown" style={InterFont.style}>
 			{/* @ts-expect-error async component */}
-			<MDXRemote source={children} options={options} components={{ pre: SyntaxHighlighter }} />
+			<MDXRemote
+				source={content}
+				options={options}
+				// @ts-expect-error prop types not correct
+				components={{ pre: SyntaxHighlighter, a: (props) => <AnchorTag {...props} fullName={fullName} version={version} /> }}
+			/>
 		</div>
 	);
 };
