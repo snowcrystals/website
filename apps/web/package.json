@@ -10,8 +10,11 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@heroicons/react": "^2.0.17",
 		"@website/buttons": "*",
+		"@website/doc-parser": "*",
 		"@website/fonts": "*",
+		"@website/markdown": "*",
 		"@website/ui": "*",
 		"next": "13.4.1",
 		"react": "^18.2.0",

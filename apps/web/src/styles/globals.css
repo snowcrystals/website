@@ -2,7 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-/* * {
-	border-color: #ff000050;
-	border-width: 1px;
-} */
+* {
+	/* border-color: #ff000050;
+	border-width: 1px; */
+
+	@apply box-border;
+}
+
+@layer components {
+	.markdown a {
+		@apply text-blue-500;
+		@apply hover:text-blue-600;
+		@apply transition-colors;
+	}
+
+	.markdown p {
+		@apply mt-0 mb-4;
+	}
+
+	.markdown pre {
+		font-size: 14px !important;
+		white-space: pre;
+		word-spacing: normal;
+		word-break: normal;
+		line-height: 1.5;
+		tab-size: 4;
+		hyphens: none;
+		padding: 1em;
+		margin: 0.5em 0;
+		overflow: auto;
+		border-radius: 4px;
+	}
+
+	.markdown img {
+		@apply max-w-full;
+	}
+
+	.markdown a {
+		@apply inline-block;
+	}
+
+	.markdown * {
+		@apply leading-[1.5];
+	}
+
+	.markdown h1,
+	.markdown h2 {
+		@apply border-b dark:border-markdown-dark border-markdown-light;
+	}
+
+	.markdown hr {
+		@apply h-1 my-6 border-none;
+		@apply dark:bg-markdown-dark bg-markdown-light;
+	}
+
+	.markdown h1 {
+		@apply text-8;
+	}
+
+	.markdown h2 {
+		@apply text-6;
+	}
+
+	.markdown h1,
+	.markdown h2,
+	.markdown h3,
+	.markdown h4,
+	.markdown h5 {
+		@apply scroll-m-24;
+		@apply font-semibold;
+		@apply my-6;
+	}
+}
