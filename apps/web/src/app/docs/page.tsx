@@ -3,6 +3,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { ArrowSmallRightIcon } from "@heroicons/react/20/solid";
 import { getPackages } from "@website/doc-parser";
+import { LandingBackground } from "@website/ui";
 
 export const metadata: Metadata = {
 	title: "Snow Crystals",
@@ -14,6 +15,7 @@ const Page = async () => {
 
 	return (
 		<main className="h-screen relative z-0 flex items-center justify-center flex-col">
+			<LandingBackground />
 			<h1 className="text-6 font-medium mb-4">Select a package:</h1>
 			<div className="flex flex-col gap-4">
 				{packages.map((pkg) => (
