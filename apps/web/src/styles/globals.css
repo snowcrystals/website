@@ -16,11 +16,6 @@
 		@apply transition-colors;
 	}
 
-	.markdown p[align="center"] {
-		@apply justify-center;
-		@apply flex;
-	}
-
 	.markdown p {
 		@apply mt-0 mb-4;
 	}
@@ -43,12 +38,12 @@
 		@apply max-w-full;
 	}
 
-	.markdown * {
-		@apply leading-[1.5];
+	.markdown a {
+		@apply inline-block;
 	}
 
-	.markdown a > img {
-		display: inline-block;
+	.markdown * {
+		@apply leading-[1.5];
 	}
 
 	.markdown h1,

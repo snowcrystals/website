@@ -11,7 +11,9 @@
 	},
 	"dependencies": {
 		"@website/buttons": "*",
+		"@website/doc-parser": "*",
 		"@website/fonts": "*",
+		"@website/markdown": "*",
 		"@website/ui": "*",
 		"next": "13.3.4",
 		"react": "^18.2.0",
