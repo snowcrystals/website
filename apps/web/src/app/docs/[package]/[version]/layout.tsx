@@ -8,7 +8,7 @@ export interface PackageVersionParams {
 
 export const generateMetadata = ({ params }: { params: PackageVersionParams }): Metadata => {
 	return {
-		title: `Snow Crystals • ${params.package}: ${params.version}`
+		title: `Snow Crystals · @snowcrystals/${params.package}: ${params.version}`
 	};
 };
 
