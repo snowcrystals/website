@@ -5,7 +5,9 @@
   <p>Guide & documentation websites for SnowCrystals 💻</p>
   
   <p align="center">
-    <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg" />
+    <a href="/">
+        <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg" />
+    </a>
     <a href="/LICENSE" target="_blank">
       <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
     </a>
@@ -19,7 +21,7 @@
   </a>
   <br />
    <a href="https://vercel.com/?utm_source=snowcrystals&utm_campaign=oss" target="_blank">
-    <img src="https://raw.githubusercontent.com/snowcrystals/.github/main/vercel.svg" width="20%">
+    <img src="https://raw.githubusercontent.com/snowcrystals/.github/main/vercel.svg">
   </a>
 </div>
 
