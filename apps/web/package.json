@@ -10,6 +10,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@heroicons/react": "^2.0.17",
 		"@website/buttons": "*",
 		"@website/doc-parser": "*",
 		"@website/fonts": "*",

@@ -2,6 +2,7 @@ import { LandingBackground } from "@website/ui";
 import { DefaultLink, PrimaryLink } from "@website/buttons";
 import type React from "react";
 import type { Metadata } from "next";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 
 export const metadata: Metadata = {
 	title: "Snow Crystals",
@@ -20,7 +21,9 @@ const Page: React.FC = () => {
 				</div>
 				<div className="flex items-center justify-center gap-x-4 w-full mt-16">
 					<PrimaryLink href="/docs">Docs</PrimaryLink>
-					<DefaultLink href="/github">GitHub</DefaultLink>
+					<DefaultLink href="/github" className="flex items-center gap-2">
+						GitHub <ArrowTopRightOnSquareIcon className="h-6" />
+					</DefaultLink>
 				</div>
 			</main>
 		</>
