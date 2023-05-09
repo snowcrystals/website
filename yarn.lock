@@ -803,10 +803,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.16.5":
-  version: 18.16.5
-  resolution: "@types/node@npm:18.16.5"
-  checksum: b6df96a76a7655cd944794197cf63f5269e5034041bc355f4f243cb3f185ad3e1948011b6f0ac66c22434e50bc53a20ec3a9d95ad284f0e3819813d309d1650b
+"@types/node@npm:^18.16.6":
+  version: 18.16.6
+  resolution: "@types/node@npm:18.16.6"
+  checksum: 99417418952c0b1a6ff5dd40ccf01c2cd18db6a1c54bfaaff29c700c877e2e541aa31ea33090592f3817adb2b8c0946b86c7fb57049131e7c08252d70075f09b
   languageName: node
   linkType: hard
 
@@ -831,7 +831,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.2.1, @types/react-dom@npm:^18.2.4":
+"@types/react-dom@npm:^18.2.4":
   version: 18.2.4
   resolution: "@types/react-dom@npm:18.2.4"
   dependencies:
@@ -840,7 +840,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:>=16, @types/react@npm:^18.2.0, @types/react@npm:^18.2.6":
+"@types/react@npm:*, @types/react@npm:>=16, @types/react@npm:^18.2.6":
   version: 18.2.6
   resolution: "@types/react@npm:18.2.6"
   dependencies:
@@ -872,7 +872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.59.2":
+"@typescript-eslint/eslint-plugin@npm:^5.59.5":
   version: 5.59.5
   resolution: "@typescript-eslint/eslint-plugin@npm:5.59.5"
   dependencies:
@@ -896,7 +896,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.42.0, @typescript-eslint/parser@npm:^5.59.2":
+"@typescript-eslint/parser@npm:^5.42.0, @typescript-eslint/parser@npm:^5.59.2, @typescript-eslint/parser@npm:^5.59.5":
   version: 5.59.5
   resolution: "@typescript-eslint/parser@npm:5.59.5"
   dependencies:
@@ -1009,10 +1009,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@website/doc-parser@workspace:packages/doc-parser"
   dependencies:
-    "@types/react": ^18.2.0
-    "@types/react-dom": ^18.2.1
+    "@types/react": ^18.2.6
+    "@types/react-dom": ^18.2.4
     axios: ^1.4.0
-    eslint: ^8.39.0
+    eslint: ^8.40.0
     react: ^18.2.0
     typedoc-json-parser: ^7.4.0
     typescript: ^5.0.4
@@ -1036,11 +1036,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@website/markdown@workspace:packages/markdown"
   dependencies:
-    "@types/react": ^18.2.0
-    "@types/react-dom": ^18.2.1
+    "@types/react": ^18.2.6
+    "@types/react-dom": ^18.2.4
     "@website/fonts": "*"
     bright: ^0.8.2
-    eslint: ^8.39.0
+    eslint: ^8.40.0
     next-mdx-remote: ^4.4.1
     react: ^18.2.0
     rehype-raw: ^6.1.1
@@ -7680,7 +7680,7 @@ __metadata:
   resolution: "web@workspace:apps/web"
   dependencies:
     "@heroicons/react": ^2.0.17
-    "@types/node": ^18.16.5
+    "@types/node": ^18.16.6
     "@types/react": ^18.2.6
     "@types/react-dom": ^18.2.4
     "@website/buttons": "*"
@@ -7708,9 +7708,9 @@ __metadata:
     "@sapphire/eslint-config": ^4.4.2
     "@sapphire/prettier-config": ^1.4.5
     "@sapphire/ts-config": ^4.0.0
-    "@types/node": ^18.16.5
-    "@typescript-eslint/eslint-plugin": ^5.59.2
-    "@typescript-eslint/parser": ^5.59.2
+    "@types/node": ^18.16.6
+    "@typescript-eslint/eslint-plugin": ^5.59.5
+    "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-next: ^13.4.1
     eslint-config-prettier: ^8.8.0
