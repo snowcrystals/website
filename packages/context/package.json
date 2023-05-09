@@ -1,0 +1,22 @@
+{
+	"name": "@website/context",
+	"type": "module",
+	"version": "0.0.0",
+	"main": "./src/index.tsx",
+	"types": "./src/index.tsx",
+	"license": "MIT",
+	"scripts": {
+		"lint": "TIMING=1 eslint"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.6",
+		"@types/react-dom": "^18.2.4",
+		"eslint": "^8.40.0",
+		"react": "^18.2.0",
+		"typescript": "^5.0.4"
+	},
+	"dependencies": {
+		"react": "18.2.0",
+		"react-dom": "18.2.0"
+	}
+}
