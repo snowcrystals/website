@@ -15,7 +15,7 @@ const Page: React.FC = () => {
 			<LandingBackground />
 			<main className="h-screen relative z-0 flex items-center justify-center flex-col">
 				<div className="flex items-center justify-center w-full">
-					<h1 className="text-12 font-bold w-1/2 text-center max-xl:w-3/4 max-sm:w-full">
+					<h1 className="text-12 font-bold w-1/2 text-center max-xl:w-3/4 max-sm:w-full max-sm:text-7">
 						Documentation for npm packages by <span className="bg-primary py-1 px-2 rounded-lg">ijsKoud</span>
 					</h1>
 				</div>
