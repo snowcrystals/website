@@ -20,6 +20,26 @@
 		@apply mt-0 mb-4;
 	}
 
+	.markdown th {
+		@apply py-2 px-3;
+		@apply font-semibold;
+	}
+
+	.markdown tr,
+	th,
+	td {
+		border: 1px solid;
+		@apply border border-solid dark:border-markdown-dark border-markdown-light;
+	}
+
+	.markdown td {
+		@apply py-2 px-3;
+	}
+
+	.markdown tr:nth-child(2n) {
+		@apply bg-zinc-800;
+	}
+
 	.markdown pre {
 		font-size: 14px !important;
 		white-space: pre;
@@ -72,5 +92,6 @@
 		@apply scroll-m-24;
 		@apply font-semibold;
 		@apply my-6;
+		@apply break-all;
 	}
 }

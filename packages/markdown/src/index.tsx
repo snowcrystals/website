@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
 import { SyntaxHighlighter } from "./SyntaxHighlighter";
 import AnchorTag from "./AnchorTag";
+import TableTag from "./TableTag";
 
 interface Props {
 	/** The content to render */
@@ -39,7 +40,7 @@ const ReadmeMarkdown = ({ content, fullName, version }: Props) => {
 				source={content}
 				options={options}
 				// @ts-expect-error prop types not correct
-				components={{ pre: SyntaxHighlighter, a: (props) => <AnchorTag {...props} fullName={fullName} version={version} /> }}
+				components={{ pre: SyntaxHighlighter, table: TableTag, a: (props) => <AnchorTag {...props} fullName={fullName} version={version} /> }}
 			/>
 		</div>
 	);
