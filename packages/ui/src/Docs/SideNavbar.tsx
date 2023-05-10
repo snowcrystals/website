@@ -69,7 +69,7 @@ export const SideNavbar: React.FC<Props> = ({ project: _project, packages, curre
 						onChange={(opt) => gotoVersion(opt?.value)}
 					/>
 				</div>
-				<div className="flex flex-col gap-4 m-4 mx-4">
+				<div className="flex flex-col gap-4 mt-4 mr-4">
 					{PROPERTIES.filter((type) => project[type].length).map((type) => (
 						<PropertyList key={type} title={type} data={project[type]} />
 					))}
