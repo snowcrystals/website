@@ -14,6 +14,7 @@
 		"@website/doc-parser": "*",
 		"@website/svg": "*",
 		"next": "13.4.1",
+		"react-custom-scrollbars-2": "^4.5.0",
 		"react-select": "^5.7.3",
 		"typedoc-json-parser": "^8.0.0"
 	},
