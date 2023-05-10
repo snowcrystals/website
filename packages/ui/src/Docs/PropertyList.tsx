@@ -18,6 +18,7 @@ interface Props {
 		| NamespaceParser.Json[];
 }
 
+// TODO: move to src/icons
 function getIcon(type: Props["title"]) {
 	switch (type) {
 		case "classes":

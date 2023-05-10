@@ -21,7 +21,7 @@ interface Props {
 	/** The currently selected version */
 	currentVersion: string;
 
-	/** The project parser for this package */
+	/** The project parser data for this package */
 	project: string;
 }
 
