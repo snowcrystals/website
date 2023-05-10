@@ -22,12 +22,14 @@ const Layout = async ({ children, params }: React.PropsWithChildren<{ params: Pa
 	const packages = await getPackages();
 	const versions = await getVersions(params.package);
 
+	const jsonData = JSON.stringify(project.toJSON());
+
 	return (
 		<div className="mx-auto">
 			<div className="relative top-2.5 mx-auto max-w-7xl gap-6 lg:max-w-full lg:flex">
 				<div className="lg:sticky lg:top-2 lg:left-2 lg:h-[calc(100vh-20px)]">
 					<SideNavbar
-						project={project.toJSON()}
+						project={jsonData}
 						packages={packages}
 						versions={versions}
 						currentPackage={params.package}

@@ -21,12 +21,12 @@ interface Props {
 	currentVersion: string;
 
 	/** The project parser for this package */
-	project: ProjectParser.Json;
+	project: string;
 }
 
 const PROPERTIES = ["classes", "enums", "variables", "typeAliases", "interfaces", "functions", "namespaces"] as const;
 
-export const SideNavbar: React.FC<Props> = ({ project, packages, currentPackage, versions, currentVersion }) => {
+export const SideNavbar: React.FC<Props> = ({ project: _project, packages, currentPackage, versions, currentVersion }) => {
 	const { opened } = useNav();
 	const { push } = useRouter();
 
@@ -37,6 +37,8 @@ export const SideNavbar: React.FC<Props> = ({ project, packages, currentPackage,
 	const gotoVersion = (version?: string) => {
 		if (version) void push(`/docs/${currentPackage}/${version}`);
 	};
+
+	const project = JSON.parse(_project) as ProjectParser.Json;
 
 	return (
 		<nav

@@ -1268,11 +1268,13 @@ __metadata:
     "@types/react": ^18.2.6
     "@types/react-dom": ^18.2.4
     "@website/context": "*"
+    "@website/doc-parser": "*"
     "@website/svg": "*"
     eslint: ^8.40.0
     next: 13.4.1
     react: ^18.2.0
     react-select: ^5.7.3
+    typedoc-json-parser: ^8.0.0
     typescript: ^5.0.4
   languageName: unknown
   linkType: soft
@@ -7694,7 +7696,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.24.4":
+"typedoc-json-parser@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "typedoc-json-parser@npm:8.0.0"
+  dependencies:
+    "@favware/colorette-spinner": ^1.0.1
+    "@sapphire/node-utilities": ^1.0.0
+    colorette: ^2.0.20
+    commander: ^10.0.1
+    js-yaml: ^4.1.0
+    tslib: ^2.5.0
+    typedoc: ^0.24.7
+  bin:
+    typedoc-json-parser: ./dist/bin/index.js
+  checksum: a135512227f5503ae3dcd95304908ecb90d0ef86cabeafcab6457f98f4c4e697dcd9c8cd5824ec23aa6a7e7e0228cd0ec267673c52cc7c23050b3cbe30aba5b9
+  languageName: node
+  linkType: hard
+
+"typedoc@npm:^0.24.4, typedoc@npm:^0.24.7":
   version: 0.24.7
   resolution: "typedoc@npm:0.24.7"
   dependencies:

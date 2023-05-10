@@ -1,1 +1,1 @@
-export * from "./SelectMenu";
+export { SelectMenu } from "./SelectMenu";

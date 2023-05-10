@@ -11,9 +11,11 @@
 	"dependencies": {
 		"@heroicons/react": "^2.0.18",
 		"@website/context": "*",
+		"@website/doc-parser": "*",
 		"@website/svg": "*",
 		"next": "13.4.1",
-		"react-select": "^5.7.3"
+		"react-select": "^5.7.3",
+		"typedoc-json-parser": "^8.0.0"
 	},
 	"devDependencies": {
 		"@types/react": "^18.2.6",
