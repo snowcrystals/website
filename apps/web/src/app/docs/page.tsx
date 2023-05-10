@@ -20,7 +20,7 @@ const Page = async () => {
 				<h1 className="text-6 font-medium mb-4">Select a package:</h1>
 				<div className="flex flex-col gap-4">
 					{packages.map((pkg) => (
-						<DefaultLink key={pkg} href={`/docs/${pkg}`} className="w-72 flex items-center justify-between">
+						<DefaultLink key={pkg} href={`/docs/${pkg}`} className="w-5 flex items-center justify-between">
 							{pkg} <ArrowSmallRightIcon className="h-8" />
 						</DefaultLink>
 					))}

@@ -21,7 +21,7 @@ const Page = async ({ params }: { params: { package: string } }) => {
 				<h1 className="text-6 font-medium mb-4">Select a version:</h1>
 				<div className="flex flex-col gap-4">
 					{versions.map((version) => (
-						<DefaultLink key={version} href={`/docs/${params.package}/${version}`} className="w-72 flex items-center justify-between">
+						<DefaultLink key={version} href={`/docs/${params.package}/${version}`} className="w-5 flex items-center justify-between">
 							{version} <ArrowSmallRightIcon className="h-8" />
 						</DefaultLink>
 					))}
