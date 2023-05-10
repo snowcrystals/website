@@ -22,7 +22,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 						<Link
 							href="/github"
 							aria-label="Open GitHub"
-							className="hocus:outline-primary outline-1 outline outline-transparent rounded-full transition-[outline-color]"
+							className="hocus:outline-primary outline-2 outline outline-transparent rounded-full transition-[outline-color]"
 						>
 							<VscodeGitHub size={28} className="[&>path]:dark:fill-current [&>path]:fill-black" />
 						</Link>

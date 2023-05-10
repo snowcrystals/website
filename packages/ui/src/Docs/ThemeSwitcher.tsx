@@ -9,7 +9,11 @@ const ThemeSwitcher: React.FC = () => {
 	const toggleTheme = () => setTheme(resolvedTheme === "light" ? "dark" : "light");
 
 	return (
-		<button onClick={toggleTheme} aria-label="Toggle theme">
+		<button
+			className="hocus:outline-primary outline-2 outline outline-transparent rounded-full transition-[outline-color]"
+			onClick={toggleTheme}
+			aria-label="Toggle theme"
+		>
 			<VscodeColorMode className="[&>path]:dark:fill-current [&>path]:fill-black" size={28} />
 		</button>
 	);
