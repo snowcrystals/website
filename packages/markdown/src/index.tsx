@@ -34,7 +34,7 @@ const ReadmeMarkdown = ({ content, fullName, version }: Props) => {
 	};
 
 	return (
-		<div className="max-w-prose markdown" style={InterFont.style}>
+		<div className="markdown max-w-prose max-lg:px-4 pr-2 max-lg:max-w-full" style={InterFont.style}>
 			{/* @ts-expect-error async component */}
 			<MDXRemote
 				source={content}

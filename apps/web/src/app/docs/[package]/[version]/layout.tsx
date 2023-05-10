@@ -23,12 +23,12 @@ const Layout = async ({ children, params }: React.PropsWithChildren<{ params: Pa
 	const versions = await getVersions(params.package);
 
 	return (
-		<div className="mx-auto px-4">
+		<div className="mx-auto">
 			<div className="relative top-2.5 mx-auto max-w-7xl gap-6 lg:max-w-full lg:flex">
-				<div className="lg:sticky lg:top-2 lg:h-[calc(100vh-20px)]">
+				<div className="lg:sticky lg:top-2 lg:left-2 lg:h-[calc(100vh-20px)]">
 					<SideNavbar packages={packages} versions={versions} currentPackage={params.package} currentVersion={params.version} />
 				</div>
-				<div className="mx-auto max-w-5xl w-fit pb-10">{children}</div>
+				<div className="mx-auto pb-10">{children}</div>
 			</div>
 		</div>
 	);
