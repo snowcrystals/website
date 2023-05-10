@@ -45,7 +45,7 @@ export const SideNavbar: React.FC<Props> = ({ project: _project, packages, curre
 		<nav
 			className={`${
 				opened ? "block" : "hidden"
-			} border rounded-lg dark:border-markdown-dark border-markdown-light fixed top-24 left-4 right-4 z-10 pl-4 py-4 lg:block mx-auto max-w-5xl lg:w-full lg:h-full lg:sticky dark:bg-dark backdrop-blur-md lg:min-w-5`}
+			} border rounded-lg dark:border-markdown-dark border-markdown-light fixed top-24 left-4 right-4 z-10 py-4 lg:block mx-auto max-w-5xl lg:w-full lg:h-full lg:sticky dark:bg-dark backdrop-blur-md lg:min-w-5`}
 		>
 			<Scrollbars
 				autoHide
@@ -55,7 +55,7 @@ export const SideNavbar: React.FC<Props> = ({ project: _project, packages, curre
 				renderTrackVertical={(props) => <div {...props} className="absolute bottom-0.5 right-0.5 top-0.5 z-30 w-1.5 rounded" />}
 				universal
 			>
-				<div className="flex flex-col gap-2 mr-4">
+				<div className="flex flex-col gap-2 mr-4 pl-4 pt-0.5">
 					<SelectMenu
 						id="sidenav-package-selector"
 						options={packages.map((pkg) => ({ label: pkg, value: pkg }))}
@@ -69,7 +69,7 @@ export const SideNavbar: React.FC<Props> = ({ project: _project, packages, curre
 						onChange={(opt) => gotoVersion(opt?.value)}
 					/>
 				</div>
-				<div className="flex flex-col gap-4 mt-4 mr-4">
+				<div className="flex flex-col gap-4 mt-4 mr-4 pl-4">
 					{PROPERTIES.filter((type) => project[type].length).map((type) => (
 						<PropertyList key={type} title={type} data={project[type]} />
 					))}

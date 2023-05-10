@@ -83,6 +83,8 @@ export const PropertyList: React.FC<Props> = ({ title, data }) => {
 
 	const [visible, setVisible] = useState(true);
 
+	title = (title === "typeAliases" ? "types" : title) as typeof title;
+
 	return (
 		<div>
 			<button
