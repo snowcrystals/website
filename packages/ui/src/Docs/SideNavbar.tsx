@@ -35,7 +35,7 @@ export const SideNavbar: React.FC<Props> = ({ packages, currentPackage, versions
 		<nav
 			className={`${
 				opened ? "block" : "hidden"
-			} border rounded-lg dark:border-markdown-dark border-markdown-light fixed top-24 left-4 right-4 z-10 px-4 py-4 lg:block mx-auto max-w-5xl lg:w-full lg:h-full lg:sticky dark:bg-dark backdrop-blur-md lg:min-w-80`}
+			} border rounded-lg dark:border-markdown-dark border-markdown-light fixed top-24 left-4 right-4 z-10 px-4 py-4 lg:block mx-auto max-w-5xl lg:w-full lg:h-full lg:sticky dark:bg-dark backdrop-blur-md lg:min-w-5`}
 		>
 			<div className="flex flex-col gap-2">
 				<SelectMenu
