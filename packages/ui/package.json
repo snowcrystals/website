@@ -13,6 +13,7 @@
 		"@website/context": "*",
 		"@website/doc-parser": "*",
 		"@website/svg": "*",
+		"cmdk": "^0.2.0",
 		"next": "13.4.1",
 		"next-themes": "0.2.1",
 		"react-custom-scrollbars-2": "^4.5.0",

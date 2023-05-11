@@ -5,3 +5,4 @@
 
 export * from "./VscodeGitHub";
 export * from "./VscodeColorMode";
+export * from "./CommandKey";

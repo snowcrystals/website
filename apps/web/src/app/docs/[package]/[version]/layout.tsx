@@ -26,7 +26,7 @@ const Layout = async ({ children, params }: React.PropsWithChildren<{ params: Pa
 
 	return (
 		<div className="mx-auto">
-			<Header project={project} />
+			<Header version={params.version} repository={params.package} />
 			<div className="relative top-2.5 mx-auto max-w-7xl gap-6 lg:max-w-full lg:flex">
 				<div className="lg:sticky lg:top-24 lg:left-2 lg:h-[calc(100vh-20px)]">
 					<SideNavbar
