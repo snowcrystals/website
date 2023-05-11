@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@heroicons/react": "^2.0.17",
 		"@website/buttons": "*",
+		"@website/context": "*",
 		"@website/doc-parser": "*",
 		"@website/fonts": "*",
 		"@website/markdown": "*",
