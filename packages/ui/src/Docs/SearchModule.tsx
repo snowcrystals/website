@@ -6,6 +6,7 @@ import { CommandKey } from "../Icons";
 import { Command } from "cmdk";
 import { type JsonSearchResult, packageSearch } from "@website/doc-parser/src/Client";
 import Link from "next/link";
+import { getIcon } from "../Icons/PropertyIcons";
 
 interface Props {
 	/** The name of the package */
@@ -71,7 +72,7 @@ const CommandMenu: React.FC<CommandProps> = ({ open, setOpen, version, package: 
 	const [timeout, setTimeoutFn] = useState<NodeJS.Timeout>();
 
 	const [loading, setLoading] = useState(false);
-	const [rawResults, setResults] = useState<JsonSearchResult>([]);
+	const [rawResults, setResults] = useState<JsonSearchResult[]>([]);
 
 	useEffect(() => {
 		if (!_search) {
@@ -106,14 +107,17 @@ const CommandMenu: React.FC<CommandProps> = ({ open, setOpen, version, package: 
 	const results = useMemo(() => {
 		return rawResults.map((result) => (
 			<Command.Item key={result.id}>
-				<Link href={`/docs/${pkg}/${version}/${result.name}:${result.id}`}>{result.name}</Link>
+				<Link href={`/docs/${pkg}/${version}/${result.name}:${result.id}`} className="flex items-center gap-2">
+					{getIcon(result.propertyType ?? "typeAliases")}
+					{result.name}
+				</Link>
 			</Command.Item>
 		));
 	}, [rawResults]);
 
 	return (
 		<Command.Dialog
-			className="fixed left-1/2 top-1/4 z-50 -translate-x-1/2 bg-black/20 border dark:border-markdown-dark border-markdown-light rounded-md backdrop-blur-lg w-10"
+			className="fixed left-1/2 top-1/4 z-50 -translate-x-1/2 bg-black/20 border dark:border-markdown-dark border-markdown-light rounded-md backdrop-blur-lg w-full max-w-10 max-md:max-w-6 max-sm:max-w-5"
 			open={open}
 			onOpenChange={setOpen}
 			label="Global Command Menu"
@@ -126,7 +130,7 @@ const CommandMenu: React.FC<CommandProps> = ({ open, setOpen, version, package: 
 			/>
 			<Command.List className="p-4 dark:bg-black/20">
 				<Command.Empty>{loading ? "Searching..." : "No results found."}</Command.Empty>
-				{results}
+				{results.slice(0, 10)}
 			</Command.List>
 		</Command.Dialog>
 	);
