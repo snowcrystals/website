@@ -24,11 +24,11 @@ export const SearchModule: React.FC<Props> = ({ name, version }) => {
 			<div>
 				<button
 					onClick={() => setDialog(!dialog)}
-					className="flex items-center justify-between w-3 dark:bg-markdown-dark bg-markdown-light p-2 rounded-md"
+					className="flex items-center justify-between w-3 dark:bg-markdown-dark bg-markdown-light p-2 rounded-md max-sm:w-2"
 					aria-label={`Search for properties in ${name}`}
 				>
 					<MagnifyingGlassIcon className="h-6" /> Search...
-					<div className="flex items-center gap-1 text-4">
+					<div className="flex items-center gap-1 text-4 max-lg:hidden">
 						<CommandKey size={18} />
 						{" K"}
 					</div>
