@@ -40,7 +40,7 @@ export const PropertyList: React.FC<Props> = ({ title, data }) => {
 			</button>
 			<ul className={`indent-5 ${visible ? "block" : "hidden"}`}>
 				{data.map((parser) => (
-					<li key={parser.id} className="border-zinc-700 border-l ml-4 py-1 hover:cursor-pointer hocus:dark:bg-zinc-800">
+					<li key={parser.id} className="border-zinc-700 border-l ml-4 py-1 hover:cursor-pointer hocus:dark:bg-zinc-800 hocus:bg-zinc-200">
 						<Link href={`${pathname}/${parser.name}:${parser.id}`}>{parser.name}</Link>
 					</li>
 				))}

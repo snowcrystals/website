@@ -39,7 +39,7 @@ export const SearchModule: React.FC<Props> = ({ name, version }) => {
 				onClick={() => setDialog(false)}
 				aria-hidden={!dialog}
 				aria-label="Close command menu"
-				className={`${dialog ? "fixed" : "hidden"} w-screen h-screen -top-[17px] -left-2 z-50 dark:bg-black/20 bg-white/10 cursor-pointer`}
+				className={`${dialog ? "fixed" : "hidden"} w-screen h-screen -top-[17px] -left-2 z-50 dark:bg-black/20 bg-white/20 cursor-pointer`}
 			/>
 		</>
 	);
@@ -117,14 +117,14 @@ const CommandMenu: React.FC<CommandProps> = ({ open, setOpen, version, package: 
 
 	return (
 		<Command.Dialog
-			className="fixed left-1/2 top-1/4 z-50 -translate-x-1/2 bg-black/20 border dark:border-markdown-dark border-markdown-light rounded-md backdrop-blur-lg w-full max-w-10 max-md:max-w-6 max-sm:max-w-5"
+			className="fixed left-1/2 top-1/4 z-50 -translate-x-1/2 dark:bg-black/20 border dark:border-markdown-dark border-markdown-light rounded-md backdrop-blur-lg w-full max-w-10 max-md:max-w-6 max-sm:max-w-5"
 			open={open}
 			onOpenChange={setOpen}
 			label="Global Command Menu"
 			shouldFilter={false}
 		>
 			<Command.Input
-				className="w-full border-0 border-b-2 rounded-t-md dark:bg-black/20 p-4 text-6 outline-none dark:border-markdown-dark border-markdown-light"
+				className="w-full border-0 border-b-2 rounded-t-md bg-white/30 dark:bg-black/20 dark:text-white placeholder:dark:text-white text-black placeholder:text-black/60 p-4 text-6 outline-none dark:border-markdown-dark border-markdown-light"
 				placeholder={`Search for anything related to ${pkg}`}
 				onValueChange={(query) => _setSearch(query)}
 			/>
