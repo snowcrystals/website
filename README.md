@@ -29,7 +29,7 @@
 
 ## Information
 
-Soon™️
+- Design stolen from [Discord.js](https://discordjs.dev). Why? Because we liked it, "Beter goed gestolen dan slecht bedacht" - Some Dutch guy
 
 ## Install
 
