@@ -39,7 +39,6 @@ const ReadmeMarkdown = ({ content, fullName, version }: Props) => {
 			<MDXRemote
 				source={content}
 				options={options}
-				// @ts-expect-error prop types not correct
 				components={{ pre: SyntaxHighlighter, table: TableTag, a: (props) => <AnchorTag {...props} fullName={fullName} version={version} /> }}
 			/>
 		</div>
