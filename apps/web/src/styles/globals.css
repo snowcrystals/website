@@ -26,8 +26,8 @@
 	}
 
 	.markdown tr,
-	th,
-	td {
+	.markdown th,
+	.markdown td {
 		border: 1px solid;
 		@apply border border-solid dark:border-markdown-dark border-markdown-light;
 	}
