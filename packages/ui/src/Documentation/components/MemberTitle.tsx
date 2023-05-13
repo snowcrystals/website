@@ -20,7 +20,9 @@ interface Props {
 
 export const MemberTitle: React.FC<Props> = ({ source, propertyType, name, params }) => {
 	const sourceUrl = (source: iSource) =>
-		`https://github.com/snowcrystals/${params.package}/blob/${params.version}/${source.path}/${source.file}#L${source.line}`;
+		`https://github.com/snowcrystals/${params.package}/blob/${params.version}/${source.path === "." ? "src" : source.path}/${source.file}#L${
+			source.line
+		}`;
 
 	return (
 		<div className="flex items-center justify-between">

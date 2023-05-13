@@ -14,8 +14,8 @@ export const MemberDescription: React.FC<Props> = ({ comment }) => {
 			</h2>
 			<p>{comment.description}</p>
 			{comment.blockTags.map((tag) => (
-				<div key={tag.name}>
-					<h3 className="font-bold text-5">{tag.name}</h3>
+				<div key={tag.name} className="mt-2">
+					<h3 className="font-semibold text-5">{tag.name}</h3>
 					<p>{tag.text}</p>
 				</div>
 			))}

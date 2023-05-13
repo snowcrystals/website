@@ -18,7 +18,8 @@ import {
 	type QueryTypeParser,
 	type TemplateLiteralTypeParser,
 	type MappedTypeParser,
-	type TypeOperatorTypeParser
+	type TypeOperatorTypeParser,
+	ReflectionTypeParser
 } from "typedoc-json-parser";
 
 interface GetTypeParameterResult {
@@ -52,7 +53,7 @@ export function getTypeParameter(anyType: TypeParser.Json | null | undefined): G
 		}
 		case TypeParser.Kind.Array: {
 			const type = anyType as ArrayTypeParser.Json;
-			const value = getTypeParameter(type)!;
+			const value = getTypeParameter(type.type)!;
 
 			return {
 				...value,
@@ -230,8 +231,11 @@ export function getTypeParameter(anyType: TypeParser.Json | null | undefined): G
 				}`
 			};
 		}
-		case TypeParser.Kind.Reflection:
-			return null;
+		case TypeParser.Kind.Reflection: {
+			const type = anyType as ReflectionTypeParser.Json;
+			console.log(type);
+			return { id: null, external: true, name: "", value: "unknown" };
+		}
 		case TypeParser.Kind.TypeOperator: {
 			const type = anyType as TypeOperatorTypeParser.Json;
 			const parsedType = getTypeParameter(type.type)!;
