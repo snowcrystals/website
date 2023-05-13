@@ -1,6 +1,6 @@
 import React from "react";
 import type { InterfaceParser, TypeParameterParser } from "typedoc-json-parser";
-import { MemberDescription, MemberProperties, MemberTitle, type PackageMemberParams } from "./components";
+import { MemberDescription, MemberMethodProperties, MemberProperties, MemberTitle, type PackageMemberParams } from "./components";
 import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
 import { getTypeParameter } from "./utils/TypeParameter";
 
@@ -28,7 +28,8 @@ export const InterfaceDocumentation: React.FC<Props> = ({ member, params }) => {
 			<SyntaxHighlighter code={getDeclarationCode(member)} />
 			<div className="flex flex-col gap-4">
 				<MemberDescription comment={member.comment} />
-				{member.properties && <MemberProperties properties={member.properties} pkg={params.package} version={params.version} />}
+				{member.properties.length ? <MemberProperties properties={member.properties} pkg={params.package} version={params.version} /> : null}
+				{member.methods.length ? <MemberMethodProperties properties={member.methods} /> : null}
 			</div>
 		</div>
 	);

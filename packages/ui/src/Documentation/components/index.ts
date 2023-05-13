@@ -3,3 +3,4 @@ export * from "./MemberTitle";
 export * from "./MemberParameters";
 export * from "./MemberTypeParameters";
 export * from "./MemberProperties";
+export * from "./MemberMethodProperties";
