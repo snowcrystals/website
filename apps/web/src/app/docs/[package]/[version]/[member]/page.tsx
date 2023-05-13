@@ -2,8 +2,7 @@ import React from "react";
 import { PackageDataResult, getPackageMemberData } from "@website/doc-parser/src/Client";
 import { PackageMemberParams } from "./layout";
 import { notFound } from "next/navigation";
-import { FunctionDocumentation } from "@website/ui";
-import { OverloadSwitch } from "./OverloadSwitch";
+import { FunctionDocumentation, OverloadSwitch } from "@website/ui";
 
 function getComponent(member: PackageDataResult, params: PackageMemberParams) {
 	switch (member.propertyType) {

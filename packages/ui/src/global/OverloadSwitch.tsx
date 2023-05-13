@@ -1,6 +1,6 @@
 "use client";
 
-import { SelectMenu } from "@website/ui/src/global/SelectMenu";
+import { SelectMenu } from "./SelectMenu";
 import React, { useMemo, useState } from "react";
 
 interface Props {
