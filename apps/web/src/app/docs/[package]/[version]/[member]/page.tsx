@@ -2,7 +2,7 @@ import React from "react";
 import { PackageDataResult, getPackageMemberData } from "@website/doc-parser/src/Client";
 import { PackageMemberParams } from "./layout";
 import { notFound } from "next/navigation";
-import { FunctionDocumentation, OverloadSwitch } from "@website/ui";
+import { FunctionDocumentation, TypeAliasDocumentation, OverloadSwitch, VariableDocumentation } from "@website/ui";
 
 function getComponent(member: PackageDataResult, params: PackageMemberParams) {
 	switch (member.propertyType) {
@@ -13,6 +13,10 @@ function getComponent(member: PackageDataResult, params: PackageMemberParams) {
 
 			return <OverloadSwitch overloads={overloads} />;
 		}
+		case "variables":
+			return <VariableDocumentation member={member as any} params={params} />;
+		case "typeAliases":
+			return <TypeAliasDocumentation member={member as any} params={params} />;
 	}
 
 	return null;
