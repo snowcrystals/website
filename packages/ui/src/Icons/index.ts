@@ -6,3 +6,5 @@
 export * from "./VscodeGitHub";
 export * from "./VscodeColorMode";
 export * from "./CommandKey";
+export * from "./PropertyIcons";
+export * from "./ParameterIcon";
