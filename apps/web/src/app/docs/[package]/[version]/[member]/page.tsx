@@ -2,7 +2,7 @@ import React from "react";
 import { PackageDataResult, getPackageMemberData } from "@website/doc-parser/src/Client";
 import { PackageMemberParams } from "./layout";
 import { notFound } from "next/navigation";
-import { FunctionDocumentation, TypeAliasDocumentation, OverloadSwitch, VariableDocumentation } from "@website/ui";
+import { FunctionDocumentation, TypeAliasDocumentation, OverloadSwitch, VariableDocumentation, InterfaceDocumentation } from "@website/ui";
 
 function getComponent(member: PackageDataResult, params: PackageMemberParams) {
 	switch (member.propertyType) {
@@ -17,6 +17,8 @@ function getComponent(member: PackageDataResult, params: PackageMemberParams) {
 			return <VariableDocumentation member={member as any} params={params} />;
 		case "typeAliases":
 			return <TypeAliasDocumentation member={member as any} params={params} />;
+		case "interfaces":
+			return <InterfaceDocumentation member={member as any} params={params} />;
 	}
 
 	return null;
@@ -29,7 +31,7 @@ const Page = async ({ params }: { params: PackageMemberParams }) => {
 	const component = getComponent(member, params);
 	if (!component) notFound();
 
-	return <main className="px-4 [&>.markdown]:px-0">{component}</main>;
+	return <main className="px-4 [&>.markdown]:px-0 min-h-screen">{component}</main>;
 };
 
 export default Page;
