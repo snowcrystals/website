@@ -25,12 +25,13 @@ const PropertyEntry: React.FC<EntryProps> = ({ property }) => {
 
 	const getTypeSection = (param: ParameterParser.Json) => {
 		const type = getTypeParameter(param.type)!;
-		return `${param.name}${param.optional ? "?" : ""}: ${param.rest ? "..." : ""}${type.value}`;
+		return `${param.rest ? "..." : ""}${param.name}${param.optional ? "?" : ""}: ${type.value}`;
 	};
 
 	const parameters = property.parameters.map(getTypeSection).join(", ");
 	const typeParameters = property.typeParameters.map(getTypeParameterSection).join(", ");
-	const returnType = getTypeParameter(property.returnType);
+	const returnType = getTypeParameter(property.returnType)!.value;
+
 	const title = `${property.name}${typeParameters.length ? `<${typeParameters}>` : ""}(${parameters}): ${returnType}`;
 	const id = `property-${property.name}`;
 

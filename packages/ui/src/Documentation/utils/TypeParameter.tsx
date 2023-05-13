@@ -44,11 +44,17 @@ export function getTypeParameter(anyType: TypeParser.Json | null | undefined): G
 	switch (anyType.kind) {
 		case TypeParser.Kind.Reference: {
 			const type = anyType as ReferenceTypeParser.Json;
+			const args = type.typeArguments.length
+				? `<${type.typeArguments
+						.map(getTypeParameter)
+						.map((t) => t!.value)
+						.join(", ")}>`
+				: "";
 			return {
 				id: type.id,
 				external: (type.id ?? 0) <= 0,
 				name: type.name,
-				value: type.name
+				value: `${type.name}${args}`
 			};
 		}
 		case TypeParser.Kind.Array: {
