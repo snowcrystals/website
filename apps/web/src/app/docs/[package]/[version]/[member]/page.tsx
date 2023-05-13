@@ -3,12 +3,20 @@ import { PackageDataResult, getPackageMemberData } from "@website/doc-parser/src
 import { PackageMemberParams } from "./layout";
 import { notFound } from "next/navigation";
 import { FunctionDocumentation } from "@website/ui";
+import { OverloadSwitch } from "./OverloadSwitch";
 
 function getComponent(member: PackageDataResult, params: PackageMemberParams) {
 	switch (member.propertyType) {
-		case "functions":
-			return <FunctionDocumentation member={member as any} params={params} />;
+		case "functions": {
+			const overloads = (member as any).signatures.map((signature: any, key: number) => (
+				<FunctionDocumentation key={key} member={member as any} overload={signature} params={params} />
+			));
+
+			return <OverloadSwitch overloads={overloads} />;
+		}
 	}
+
+	return null;
 }
 
 const Page = async ({ params }: { params: PackageMemberParams }) => {
@@ -16,6 +24,7 @@ const Page = async ({ params }: { params: PackageMemberParams }) => {
 	if (!member || !member.propertyType) notFound();
 
 	const component = getComponent(member, params);
+	if (!component) notFound();
 
 	return <main className="px-4 [&>.markdown]:px-0">{component}</main>;
 };
