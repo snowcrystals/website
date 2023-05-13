@@ -8,3 +8,4 @@ export * from "./VscodeColorMode";
 export * from "./CommandKey";
 export * from "./PropertyIcons";
 export * from "./ParameterIcon";
+export * from "./PropertyIcon";
