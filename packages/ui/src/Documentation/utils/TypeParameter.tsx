@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type React from "react";
 import {
 	type ArrayTypeParser,
@@ -23,13 +24,6 @@ import {
 	ReflectionTypeParser
 } from "typedoc-json-parser";
 
-interface GetTypeParameterResult {
-	id: number | null;
-	external: boolean;
-	name: string;
-	value: string;
-}
-
 function isSpecial(str: string): boolean {
 	if (str.endsWith("[]")) return true;
 	if (str.startsWith("(") && str.endsWith(")")) return true;
@@ -44,7 +38,7 @@ export function getTypeParametersString(anyType: TypeParser.Json): string {
 		case TypeParser.Kind.Reference: {
 			const type = anyType as ReferenceTypeParser.Json;
 			const args = type.typeArguments.length ? `<${type.typeArguments.map(getTypeParametersString).join(", ")}>` : "";
-			return `${type.name}${args}`;
+			return `${type.name}${args.length === 2 ? "" : args}`;
 		}
 		case TypeParser.Kind.Array: {
 			const type = anyType as ArrayTypeParser.Json;
@@ -179,217 +173,280 @@ export function getTypeParametersString(anyType: TypeParser.Json): string {
 	}
 }
 
-export function getTypeParameter(anyType: TypeParser.Json | null | undefined): GetTypeParameterResult | null {
-	if (!anyType) return null;
+// ==============================
+// ==============================
+// === REACT COMPONENT PARSER ===
+// ==============================
+// ==============================
 
+function getTypeUrl(id: number | null, name: string, pkg: string, version: string): string | null {
+	if (!id || id <= 0) return null;
+	return `/docs/${pkg}/${version}/${name}:${id}`;
+}
+
+export function getTypeParametersReact(anyType: TypeParser.Json, pkg: string, version: string): React.ReactNode {
 	switch (anyType.kind) {
 		case TypeParser.Kind.Reference: {
 			const type = anyType as ReferenceTypeParser.Json;
-			const args = type.typeArguments.length
-				? `<${type.typeArguments
-						.map(getTypeParameter)
-						.map((t) => t!.value)
-						.join(", ")}>`
-				: "";
-			return {
-				id: type.id,
-				external: (type.id ?? 0) <= 0,
-				name: type.name,
-				value: `${type.name}${args}`
-			};
+			const args = type.typeArguments.map((type) => getTypeParametersReact(type, pkg, version));
+
+			const outerTypeUrl = getTypeUrl(type.id, type.name, pkg, version);
+			const outerTypeComponent = outerTypeUrl ? (
+				<Link className="text-primary" href={outerTypeUrl}>
+					{type.name}
+				</Link>
+			) : (
+				type.name
+			);
+
+			const stringArgs = type.typeArguments.length ? `<${type.typeArguments.map(getTypeParametersString).join(", ")}>` : "";
+			const argsAreValid = stringArgs.length === 2 || args.length <= 0 ? false : true;
+
+			const innerTypeComponent = argsAreValid && (
+				<span>
+					{"<"}
+					{args.reduce((prev, curr) => [prev, ", ", curr])}
+					{">"}
+				</span>
+			);
+
+			return (
+				<>
+					<span>{outerTypeComponent}</span>
+					{innerTypeComponent}
+				</>
+			);
 		}
 		case TypeParser.Kind.Array: {
 			const type = anyType as ArrayTypeParser.Json;
-			const value = getTypeParameter(type.type)!;
+			const value = getTypeParametersReact(type.type, pkg, version);
 
-			return {
-				...value,
-				value: `Array<${value.value}>`
-			};
+			return (
+				<span>
+					Array{"<"}
+					{value}
+					{">"}
+				</span>
+			);
 		}
 		case TypeParser.Kind.Conditional: {
 			const type = anyType as ConditionalTypeParser.Json;
-			const checkType = getTypeParameter(type.checkType)!;
-			const extendsType = getTypeParameter(type.extendsType)!;
-			const trueType = getTypeParameter(type.trueType)!;
-			const falseType = getTypeParameter(type.falseType)!;
+			const checkType = getTypeParametersReact(type.checkType, pkg, version);
+			const extendsType = getTypeParametersReact(type.extendsType, pkg, version);
+			const trueType = getTypeParametersReact(type.trueType, pkg, version);
+			const falseType = getTypeParametersReact(type.falseType, pkg, version);
 
-			return {
-				id: null,
-				external: true,
-				name: "",
-				value: `${checkType.value} extends ${extendsType.value} ? ${trueType.value} : ${falseType.value}`
-			};
+			return (
+				<span>
+					{checkType} <span>{" extends "}</span>
+					{extendsType}
+					<span>{" ? "}</span>
+					{trueType}
+					<span>{" : "}</span>
+					{falseType}
+				</span>
+			);
 		}
 		case TypeParser.Kind.Inferred: {
 			const type = anyType as InferredTypeParser.Json;
-			return {
-				id: null,
-				name: type.type,
-				external: true,
-				value: `infer ${type.type}`
-			};
+			return <span>infer {type.type}</span>;
 		}
 		case TypeParser.Kind.Union: {
 			const type = anyType as UnionTypeParser.Json;
-			return {
-				id: null,
-				external: true,
-				name: "",
-				value: `${type.types
-					.map(getTypeParameter)
-					.map((v) => v!.value)
-					.join(" | ")}`
-			};
+			return <span>{type.types.map((t) => getTypeParametersReact(t, pkg, version)).reduce((prev, curr) => [prev, " | ", curr])}</span>;
 		}
 		case TypeParser.Kind.Rest: {
 			const type = anyType as RestTypeParser.Json;
-			const restType = getTypeParameter(type.type)!;
-			return {
-				...restType,
-				value: `${isSpecial(restType.value) ? `...(${restType.value})` : `...${restType.value}`}`
-			};
+			const restType = getTypeParametersReact(type.type, pkg, version);
+			const restTypeStr = getTypeParametersString(type.type);
+
+			return (
+				<span>
+					{isSpecial(restTypeStr) ? "...(" : "..."}
+					{restType}
+					{isSpecial(restTypeStr) ? ")" : ""}
+				</span>
+			);
 		}
 		case TypeParser.Kind.Unknown: {
 			const type = anyType as UnknownTypeParser.Json;
-			return {
-				id: null,
-				external: true,
-				name: type.name,
-				value: type.name
-			};
+			return <span>{type.name}</span>;
 		}
 		case TypeParser.Kind.Intrinsic: {
 			const type = anyType as IntrinsicTypeParser.Json;
-			return {
-				id: null,
-				name: type.type,
-				external: true,
-				value: type.type
-			};
+			return <span>{type.type}</span>;
 		}
 		case TypeParser.Kind.Literal: {
 			const type = anyType as LiteralTypeParser.Json;
-			return {
-				id: null,
-				name: type.value,
-				external: true,
-				value: type.value
-			};
+			return <span>{type.value}</span>;
 		}
 		case TypeParser.Kind.IndexedAccess: {
 			const type = anyType as IndexedAccessTypeParser.Json;
-			const objectType = getTypeParameter(type.objectType)!;
-			const indexType = getTypeParameter(type.indexType)!;
+			const objectType = getTypeParametersReact(type.objectType, pkg, version);
+			const objectTypeStr = getTypeParametersString(type.objectType);
+			const indexType = getTypeParametersReact(type.indexType, pkg, version);
 
-			return {
-				...objectType,
-				value: `${isSpecial(objectType.value) ? `(${objectType.value})[${indexType.value}]` : `${objectType.value}[${indexType.value}]`}`
-			};
+			return (
+				<span>
+					{isSpecial(objectTypeStr) ? (
+						<>
+							{"("}
+							{objectType}
+							{")"}
+							{"["}
+							{indexType}
+							{"]"}
+						</>
+					) : (
+						<>
+							{objectType}
+							{"["}
+							{indexType}
+							{"]"}
+						</>
+					)}
+				</span>
+			);
 		}
 		case TypeParser.Kind.Optional: {
 			const type = anyType as OptionalTypeParser.Json;
-			const optionalType = getTypeParameter(type.type)!;
-			return {
-				...optionalType,
-				value: `${optionalType.value} | undefined`
-			};
+			const optionalType = getTypeParametersReact(type.type, pkg, version);
+
+			return <span>{optionalType} | undefined</span>;
 		}
 		case TypeParser.Kind.Intersection: {
 			const type = anyType as IntersectionTypeParser.Json;
-			return {
-				id: null,
-				external: true,
-				name: "",
-				value: type.types
-					.map(getTypeParameter)
-					.map((v) => v!.value)
-					.join(" & ")
-			};
+			return <span>{type.types.map((type) => getTypeParametersReact(type, pkg, version)).reduce((prev, curr) => [prev, " & ", curr])}</span>;
 		}
 		case TypeParser.Kind.NamedTupleMember: {
 			const type = anyType as NamedTupleMemberTypeParser.Json;
-
-			return {
-				id: null,
-				external: true,
-				name: "",
-				value: `${type.name}${type.optional ? "?" : ""}`
-			};
+			return (
+				<span>
+					{type.name}${type.optional ? "?" : ""}
+				</span>
+			);
 		}
 		case TypeParser.Kind.Tuple: {
 			const type = anyType as TupleTypeParser.Json;
-			return {
-				id: null,
-				external: true,
-				name: "",
-				value: `[${type.types
-					.map(getTypeParameter)
-					.map((v) => v!.value)
-					.join(", ")}]`
-			};
+			return <span>[{type.types.map((type) => getTypeParametersReact(type, pkg, version)).reduce((prev, curr) => [prev, ", ", curr])}]</span>;
 		}
 		case TypeParser.Kind.Predicate: {
 			const type = anyType as PredicateTypeParser.Json;
-			if (!type.type)
-				return {
-					external: true,
-					id: null,
-					name: type.name,
-					value: type.name
-				};
+			if (!type.type) return type.name;
 
-			const predicateType = getTypeParameter(type.type)!;
-
-			return {
-				...predicateType,
-				value: `${type.name} is ${predicateType.value}`
-			};
+			const predicateType = getTypeParametersReact(type.type, pkg, version);
+			return (
+				<span>
+					{type.name} is {predicateType}
+				</span>
+			);
 		}
 		case TypeParser.Kind.Query: {
 			const type = anyType as QueryTypeParser.Json;
-			const queryType = getTypeParameter(type.query)!;
+			const queryType = getTypeParametersReact(type.query, pkg, version);
 
 			return queryType;
 		}
 		case TypeParser.Kind.TemplateLiteral: {
 			const type = anyType as TemplateLiteralTypeParser.Json;
-			return {
-				id: null,
-				external: true,
-				name: "",
-				value: `\`${type.tail.map((tail) => `${tail.text}\${${getTypeParameter(tail.type)!.value}}`).join("")}\``
-			};
+			return (
+				<span>
+					`
+					{type.tail.map((tail) => (
+						<span>
+							{tail.text}
+							{"${"}
+							{getTypeParametersReact(tail.type, pkg, version)}
+							{"}"}
+						</span>
+					))}
+					`
+				</span>
+			);
 		}
 		case TypeParser.Kind.Mapped: {
 			const type = anyType as MappedTypeParser.Json;
-			const parameterType = getTypeParameter(type.parameterType)!;
-			const nameType = getTypeParameter(type.nameType)!;
-			const templateType = getTypeParameter(type.templateType)!;
+			const parameterType = getTypeParametersReact(type.parameterType, pkg, version);
+			const nameType = type.nameType ? getTypeParametersReact(type.nameType, pkg, version) : "";
+			const templateType = getTypeParametersReact(type.templateType, pkg, version);
 			const isReadonly = type.readonly === "+" ? true : false;
 			const isOptional = type.optional === "+" ? true : false;
 
-			return {
-				id: null,
-				external: true,
-				name: "",
-				value: `${isReadonly ? "readonly " : ""}[${type.parameter} ${nameType.value} ${parameterType.value}]${isOptional ? "?" : ""}: ${
-					templateType.value
-				}`
-			};
+			return (
+				<span>
+					{isReadonly ? "readonly " : ""}[{type.parameter} {nameType} {parameterType}]{isOptional ? "?" : ""}: {templateType}
+				</span>
+			);
 		}
 		case TypeParser.Kind.Reflection: {
-			const type = anyType as ReflectionTypeParser.Json;
-			console.log(type);
-			return { id: null, external: true, name: "", value: "" };
+			const { properties, signatures } = anyType as ReflectionTypeParser.Json;
+			if (properties) {
+				const mappedProperties = properties
+					.map((property) => (
+						<span>
+							{property.name}: {getTypeParametersReact(property.type, pkg, version)}
+						</span>
+					))
+					.reduce((prev, curr) => [prev, ", ", curr] as any);
+				return (
+					<span>
+						{"{ "}
+						{mappedProperties}
+						{" }"}
+					</span>
+				);
+			}
+
+			if (signatures) {
+				const mappedSignatures = signatures.map((signature) => {
+					const name = signature.name === "__type" ? "" : signature.name;
+					const params = signature.parameters.map((param) => (
+						<span>
+							{param.rest ? "..." : ""}
+							{param.name}
+							{param.optional ? "?" : ""}: {getTypeParametersReact(param.type, pkg, version)}
+						</span>
+					));
+					const typeParams = signature.typeParameters.map((param) => (
+						<span>
+							{param.name}
+							{param.constraint ? <span>extends ${getTypeParametersReact(param.constraint, pkg, version)}</span> : ""}
+							{param.default ? <span>= {getTypeParametersReact(param.default, pkg, version)}</span> : ""}
+						</span>
+					));
+
+					return (
+						<span>
+							{name}{" "}
+							{typeParams.length ? (
+								<span>
+									{"<"}
+									{typeParams.reduce((prev, curr) => [prev, ", ", curr] as any)}
+									{">"}
+								</span>
+							) : (
+								""
+							)}
+							({params.reduce((prev, curr) => [prev, ", ", curr] as any)}){" => "}
+							{getTypeParametersReact(signature.returnType, pkg, version)}
+						</span>
+					);
+				});
+
+				return mappedSignatures.reduce((prev, curr) => [prev, " | ", curr] as any);
+			}
+
+			return "";
 		}
 		case TypeParser.Kind.TypeOperator: {
 			const type = anyType as TypeOperatorTypeParser.Json;
-			const parsedType = getTypeParameter(type.type)!;
-			return {
-				...parsedType,
-				value: `${type.operator} ${parsedType.value}`
-			};
+			const parsedType = getTypeParametersReact(type.type, pkg, version);
+
+			return (
+				<span>
+					{type.operator} {parsedType}
+				</span>
+			);
 		}
 	}
 }

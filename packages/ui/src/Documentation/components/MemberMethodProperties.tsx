@@ -1,7 +1,7 @@
 import React from "react";
 import type { ClassMethodParser, InterfaceMethodParser, ParameterParser, SignatureParser, TypeParameterParser } from "typedoc-json-parser";
 import { getIcon } from "../../Icons";
-import { getTypeParameter, getTypeParametersString } from "../utils/TypeParameter";
+import { getTypeParametersReact, getTypeParametersString } from "../utils/TypeParameter";
 import Link from "next/link";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import { ReadmeMarkdown } from "@website/markdown";
@@ -28,7 +28,7 @@ interface TableEntryProps {
 }
 
 const TableEntry: React.FC<TableEntryProps> = ({ param, pkg, version }) => {
-	const typeValue = getTypeParameter(param.type);
+	const typeValue = getTypeParametersReact(param.type, pkg, version);
 
 	return (
 		<tr className="[&>td]:last-of-type:border-0">
@@ -37,15 +37,7 @@ const TableEntry: React.FC<TableEntryProps> = ({ param, pkg, version }) => {
 				{param.name}
 			</td>
 			<td className="border-b dark:border-markdown-dark border-markdown-light px-3 py-2 text-left text-4 font-mono break-words leading-relaxed">
-				{typeValue ? (
-					typeValue.external ? (
-						typeValue.value
-					) : (
-						<Link className="text-primary" href={`/docs/${pkg}/${version}/${typeValue.name}:${typeValue.id}`}>
-							{typeValue.value}
-						</Link>
-					)
-				) : null}
+				{typeValue}
 			</td>
 			<td className="border-b dark:border-markdown-dark border-markdown-light px-3 py-2 text-left text-4 capitalize font-mono break-words leading-relaxed">
 				{param.optional ? "Yes" : "No"}

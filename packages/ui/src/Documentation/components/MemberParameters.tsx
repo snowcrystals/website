@@ -1,8 +1,7 @@
 import React from "react";
 import type { ParameterParser } from "typedoc-json-parser";
 import { ParameterIcon } from "../../Icons";
-import { getTypeParameter } from "../utils/TypeParameter";
-import Link from "next/link";
+import { getTypeParametersReact } from "../utils/TypeParameter";
 
 interface Props {
 	parameters: ParameterParser.Json[];
@@ -17,7 +16,7 @@ interface EntryProps {
 }
 
 const ParamEntry: React.FC<EntryProps> = ({ param, pkg, version }) => {
-	const typeValue = getTypeParameter(param.type);
+	const typeValue = getTypeParametersReact(param.type, pkg, version);
 
 	return (
 		<tr className="[&>td]:last-of-type:border-0">
@@ -26,15 +25,7 @@ const ParamEntry: React.FC<EntryProps> = ({ param, pkg, version }) => {
 				{param.name}
 			</td>
 			<td className="border-b dark:border-markdown-dark border-markdown-light px-3 py-2 text-left text-4 font-mono break-words leading-relaxed">
-				{typeValue ? (
-					typeValue.external ? (
-						typeValue.value
-					) : (
-						<Link className="text-primary" href={`/docs/${pkg}/${version}/${typeValue.name}:${typeValue.id}`}>
-							{typeValue.value}
-						</Link>
-					)
-				) : null}
+				{typeValue}
 			</td>
 			<td className="border-b dark:border-markdown-dark border-markdown-light px-3 py-2 text-left text-4 capitalize font-mono break-words leading-relaxed">
 				{param.optional ? "Yes" : "No"}

@@ -1,7 +1,7 @@
 import React from "react";
 import type { PropertyParser } from "typedoc-json-parser";
 import { PropertyIcon } from "../../Icons";
-import { getTypeParameter } from "../utils/TypeParameter";
+import { getTypeParametersReact } from "../utils/TypeParameter";
 import Link from "next/link";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import { ReadmeMarkdown } from "@website/markdown";
@@ -19,7 +19,7 @@ interface EntryProps {
 }
 
 const PropertyEntry: React.FC<EntryProps> = ({ property, pkg, version }) => {
-	const typeValue = getTypeParameter(property.type);
+	const typeValue = getTypeParametersReact(property.type, pkg, version);
 	const id = `property-${property.name.toLowerCase()}`;
 
 	return (
@@ -29,19 +29,7 @@ const PropertyEntry: React.FC<EntryProps> = ({ property, pkg, version }) => {
 					<LinkIcon className="h-4" />
 				</Link>
 				<span>{property.name}: </span>
-				<span>
-					{typeValue ? (
-						typeValue.external ? (
-							typeValue.value
-						) : (
-							<Link className="text-primary" href={`/docs/${pkg}/${version}/${typeValue.name}:${typeValue.id}`}>
-								{typeValue.value}
-							</Link>
-						)
-					) : (
-						"unknown"
-					)}
-				</span>
+				<span>{typeValue}</span>
 			</h3>
 			<div className="[&>div.markdown]:!font-mono mt-1 [&>div.markdown]:px-0">
 				<ReadmeMarkdown content={property.comment.description ?? ""} fullName={pkg} version={version} />
