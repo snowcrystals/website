@@ -20,7 +20,7 @@ interface EntryProps {
 
 const PropertyEntry: React.FC<EntryProps> = ({ property, pkg, version }) => {
 	const typeValue = getTypeParameter(property.type);
-	const id = `property-${property.name}`;
+	const id = `property-${property.name.toLowerCase()}`;
 
 	return (
 		<div className="last-of-type:border-none border-b border-markdown-light dark:border-markdown-dark py-2">
