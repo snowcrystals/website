@@ -66,10 +66,10 @@ const PropertyEntry: React.FC<EntryProps> = ({ property, member, pkg, version })
 	const typeParameters = property.typeParameters.map(getTypeParameterSection).join(", ");
 	const returnType = getTypeParametersString(property.returnType);
 
-	const accessibility = "accessibility" in member ? `${member.accessibility} ` : "";
-	const abstractFlag = "abstract" in member && member.abstract ? "abstract " : "";
-	const staticFlag = "static" in member && member.static ? "static " : "";
-	const flags = [staticFlag, abstractFlag, accessibility].filter(Boolean);
+	const accessibility = "accessibility" in member ? member.accessibility : "";
+	const abstractFlag = "abstract" in member && member.abstract ? "abstract" : "";
+	const staticFlag = "static" in member && member.static ? "static" : "";
+	const flags = [staticFlag, abstractFlag, accessibility].filter(Boolean).filter((flag) => flag !== "public");
 
 	const title = `function ${property.name}${typeParameters.length ? `<${typeParameters}>` : ""}(${parameters}): ${returnType}`;
 	const id = `method-${property.name.toLowerCase()}`;
@@ -85,13 +85,15 @@ const PropertyEntry: React.FC<EntryProps> = ({ property, member, pkg, version })
 					{property.parameters.map((param) => `${param.rest ? "..." : ""}${param.name}${param.optional ? "?" : ""}`).join(", ")})
 				</span>
 			</h3>
-			<div className="flex items-center gap-2 mt-3">
-				{flags.map((flag) => (
-					<span key={flag} className="bg-primary rounded-full px-4 py-2">
-						{flag}
-					</span>
-				))}
-			</div>
+			{Boolean(flags.length) && (
+				<div className="flex items-center gap-2 mt-3">
+					{flags.map((flag) => (
+						<span key={flag} className="bg-primary rounded-full px-4 py-2">
+							{flag}
+						</span>
+					))}
+				</div>
+			)}
 			<SyntaxHighlighter code={title} />
 			{Boolean(property.parameters.length) && (
 				<div className="overflow-x-auto mb-4">
