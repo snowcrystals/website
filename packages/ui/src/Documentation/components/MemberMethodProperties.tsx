@@ -89,7 +89,8 @@ const PropertyEntry: React.FC<EntryProps> = ({ property, member, pkg, version })
 					<LinkIcon className="h-4" />
 				</Link>
 				<span>
-					{property.name}({property.parameters.map((param) => `${param.name}${param.optional ? "?" : ""}`).join(", ")})
+					{property.name}(
+					{property.parameters.map((param) => `${param.rest ? "..." : ""}${param.name}${param.optional ? "?" : ""}`).join(", ")})
 				</span>
 			</h3>
 			<div className="flex items-center gap-2 mt-3">
