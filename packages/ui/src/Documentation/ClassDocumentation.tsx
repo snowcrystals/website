@@ -37,7 +37,7 @@ export const ClassDocumentation: React.FC<Props> = ({ member, params }) => {
 			<div className="flex flex-col gap-4">
 				<MemberDescription comment={member.comment} />
 				{member.properties.length ? <MemberProperties properties={member.properties} pkg={params.package} version={params.version} /> : null}
-				{member.methods.length ? <MemberMethodProperties properties={member.methods} /> : null}
+				{member.methods.length ? <MemberMethodProperties properties={member.methods} pkg={params.package} version={params.version} /> : null}
 			</div>
 		</div>
 	);
