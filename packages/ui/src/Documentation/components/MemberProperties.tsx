@@ -44,12 +44,12 @@ const PropertyEntry: React.FC<EntryProps> = ({ property, pkg, version }) => {
 				</span>
 			</h3>
 			<div className="[&>div.markdown]:!font-mono mt-1 [&>div.markdown]:px-0">
-				<ReadmeMarkdown content={property.comment.description ?? ""} fullName="" version="" />
+				<ReadmeMarkdown content={property.comment.description ?? ""} fullName={pkg} version={version} />
 			</div>
 			{property.comment.blockTags.map((tag) => (
 				<div key={tag.name} className="[&>div.markdown]:!font-mono mt-1 [&>div.markdown]:px-0">
 					<h3 className="font-semibold text-4">{tag.name}</h3>
-					<ReadmeMarkdown content={tag.text} fullName="" version="" />
+					<ReadmeMarkdown content={tag.text} fullName={pkg} version={version} />
 				</div>
 			))}
 		</div>
