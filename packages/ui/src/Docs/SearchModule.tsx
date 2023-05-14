@@ -107,7 +107,7 @@ const CommandMenu: React.FC<CommandProps> = ({ open, setOpen, version, package: 
 	const results = useMemo(() => {
 		return rawResults.map((result) => (
 			<Command.Item key={result.id}>
-				<Link href={`/docs/${pkg}/${version}/${result.name}:${result.id}`} className="flex items-center gap-2">
+				<Link href={`/docs/${pkg}/${version}/${result.name}:${result.id}`} onClick={() => setOpen(false)} className="flex items-center gap-2">
 					{getIcon(result.propertyType ?? "typeAliases")}
 					{result.name}
 				</Link>
