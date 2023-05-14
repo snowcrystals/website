@@ -5,7 +5,6 @@ import { ReadmeMarkdown } from "@website/markdown";
 
 const Page = async ({ params }: { params: PackageVersionParams }) => {
 	const project = (await getPackageData(params.package, params.version))!;
-
 	const fullName = `snowcrystals/${params.package}`;
 
 	return (
