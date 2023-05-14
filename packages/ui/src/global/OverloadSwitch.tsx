@@ -16,7 +16,7 @@ export const OverloadSwitch: React.FC<Props> = ({ overloads }) => {
 			{overloads.length > 1 && (
 				<div className="w-fit mb-4">
 					<SelectMenu
-						value={{ label: `Overload ${overload + 1} of ${overloads.length + 1}`, value: overload }}
+						value={{ label: `Overload ${overload + 1} of ${overloads.length}`, value: overload }}
 						options={Array(overloads.length)
 							.fill(null)
 							.map((_, idx) => ({ value: idx, label: `Overload ${idx + 1}` }))}
