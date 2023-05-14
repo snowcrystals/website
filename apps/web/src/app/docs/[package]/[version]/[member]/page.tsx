@@ -8,7 +8,8 @@ import {
 	OverloadSwitch,
 	VariableDocumentation,
 	InterfaceDocumentation,
-	ClassDocumentation
+	ClassDocumentation,
+	EnumDocumentation
 } from "@website/ui";
 
 function getComponent(member: PackageDataResult, params: PackageMemberParams) {
@@ -28,6 +29,8 @@ function getComponent(member: PackageDataResult, params: PackageMemberParams) {
 			return <InterfaceDocumentation member={member as any} params={params} />;
 		case "classes":
 			return <ClassDocumentation member={member as any} params={params} />;
+		case "enums":
+			return <EnumDocumentation member={member as any} params={params} />;
 	}
 
 	return null;
