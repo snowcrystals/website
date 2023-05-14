@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { PlainLink } from "@website/buttons";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import type { ClassParser, EnumParser, VariableParser, TypeAliasParser, InterfaceParser, FunctionParser, NamespaceParser } from "typedoc-json-parser";
@@ -42,9 +42,12 @@ export const PropertyList: React.FC<Props> = ({ title, data }) => {
 			<ul className={`indent-5 ${visible ? "block" : "hidden"}`}>
 				{data.map((parser) => (
 					<li key={parser.id} className="border-zinc-700 border-l ml-4 py-1 hover:cursor-pointer hocus:dark:bg-zinc-800 hocus:bg-zinc-200">
-						<Link prefetch={false} className="overflow-hidden overflow-ellipsis" href={`${pathname}/${parser.name}:${parser.id}`}>
+						<PlainLink
+							className="!text-4 block !w-full overflow-hidden overflow-ellipsis"
+							href={`${pathname}/${parser.name}:${parser.id}`}
+						>
 							{parser.name}
-						</Link>
+						</PlainLink>
 					</li>
 				))}
 			</ul>

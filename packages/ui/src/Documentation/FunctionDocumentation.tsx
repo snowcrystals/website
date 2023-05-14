@@ -2,7 +2,7 @@ import React from "react";
 import type { FunctionParser, ParameterParser, SignatureParser, TypeParameterParser } from "typedoc-json-parser";
 import { MemberDescription, MemberParameters, MemberTitle, MemberTypeParameters, type PackageMemberParams } from "./components";
 import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
-import { getTypeParameter } from "./utils/TypeParameter";
+import { getTypeParametersString } from "./utils/TypeParameter";
 
 interface Props {
 	overload: SignatureParser.Json;
@@ -12,20 +12,20 @@ interface Props {
 
 function getDeclarationCode(overload: SignatureParser.Json) {
 	const getTypeParameterSection = (param: TypeParameterParser.Json) => {
-		const constraint = getTypeParameter(param.constraint);
-		const defaultValue = getTypeParameter(param.default);
+		const constraint = param.constraint ? getTypeParametersString(param.constraint) : null;
+		const defaultValue = param.default ? getTypeParametersString(param.default) : null;
 
-		return `${param.name}${constraint ? ` extends ${constraint.value}` : ""}${defaultValue ? ` = ${defaultValue.value}` : ""}`;
+		return `${param.name}${constraint ? ` extends ${constraint}` : ""}${defaultValue ? ` = ${defaultValue}` : ""}`;
 	};
 
 	const getTypeSection = (param: ParameterParser.Json) => {
-		const type = getTypeParameter(param.type)!;
-		return `${param.name}${param.optional ? "?" : ""}: ${param.rest ? "..." : ""}${type.value}`;
+		const type = getTypeParametersString(param.type)!;
+		return `${param.name}${param.optional ? "?" : ""}: ${param.rest ? "..." : ""}${type}`;
 	};
 
 	const typeParams = overload.typeParameters.map(getTypeParameterSection).join(", ");
 	const params = overload.parameters.map(getTypeSection).join(", ");
-	const returnType = getTypeParameter(overload.returnType)!;
+	const returnType = getTypeParametersString(overload.returnType)!;
 
 	return `export declare function ${overload.name}${typeParams.length ? `<${typeParams}>` : ""}(${params}): ${returnType}`;
 }

@@ -1,8 +1,7 @@
 import React from "react";
 import type { ClassConstructorParser, ParameterParser } from "typedoc-json-parser";
 import { getIcon } from "../../Icons";
-import { getTypeParameter } from "../utils/TypeParameter";
-import Link from "next/link";
+import { getTypeParametersString, getTypeParametersReact } from "../utils/TypeParameter";
 import { ReadmeMarkdown } from "@website/markdown";
 import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
 
@@ -19,7 +18,7 @@ interface TableEntryProps {
 }
 
 const TableEntry: React.FC<TableEntryProps> = ({ param, pkg, version }) => {
-	const typeValue = getTypeParameter(param.type);
+	const typeValue = getTypeParametersReact(param.type, pkg, version);
 
 	return (
 		<tr className="[&>td]:last-of-type:border-0">
@@ -28,15 +27,7 @@ const TableEntry: React.FC<TableEntryProps> = ({ param, pkg, version }) => {
 				{param.name}
 			</td>
 			<td className="border-b dark:border-markdown-dark border-markdown-light px-3 py-2 text-left text-4 font-mono break-words leading-relaxed">
-				{typeValue ? (
-					typeValue.external ? (
-						typeValue.value
-					) : (
-						<Link className="text-primary" href={`/docs/${pkg}/${version}/${typeValue.name}:${typeValue.id}`}>
-							{typeValue.value}
-						</Link>
-					)
-				) : null}
+				{typeValue}
 			</td>
 			<td className="border-b dark:border-markdown-dark border-markdown-light px-3 py-2 text-left text-4 capitalize font-mono break-words leading-relaxed">
 				{param.optional ? "Yes" : "No"}
@@ -50,11 +41,11 @@ const TableEntry: React.FC<TableEntryProps> = ({ param, pkg, version }) => {
 
 function getDeclarationCode(type: ClassConstructorParser.Json) {
 	const getTypeParameterSection = (param: ParameterParser.Json) => {
-		const typeValue = getTypeParameter(param.type);
+		const typeValue = getTypeParametersString(param.type);
 		const optional = param.optional ? "?" : "";
 		const rest = param.rest ? "..." : "";
 
-		return `${rest}${param.name}${optional}: ${typeValue!.value}`;
+		return `${rest}${param.name}${optional}: ${typeValue}`;
 	};
 
 	return `constructor(${type.parameters.map(getTypeParameterSection).join(", ")}): this;`;

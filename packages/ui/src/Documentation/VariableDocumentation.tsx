@@ -2,7 +2,7 @@ import React from "react";
 import type { VariableParser } from "typedoc-json-parser";
 import { MemberDescription, MemberTitle, type PackageMemberParams } from "./components";
 import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
-import { getTypeParameter } from "./utils/TypeParameter";
+import { getTypeParametersString } from "./utils/TypeParameter";
 
 interface Props {
 	member: VariableParser.Json;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 function getDeclarationCode(variable: VariableParser.Json) {
-	const type = getTypeParameter(variable.type)!.value;
+	const type = getTypeParametersString(variable.type);
 	const value = variable.value.length ? `= ${variable.value};` : "";
 
 	return `${variable.name}: ${type}${value}`;

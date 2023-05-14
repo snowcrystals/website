@@ -2,7 +2,7 @@ import React from "react";
 import type { TypeAliasParser, TypeParameterParser } from "typedoc-json-parser";
 import { MemberDescription, MemberTitle, type PackageMemberParams } from "./components";
 import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
-import { getTypeParameter } from "./utils/TypeParameter";
+import { getTypeParametersString } from "./utils/TypeParameter";
 
 interface Props {
 	member: TypeAliasParser.Json;
@@ -11,13 +11,13 @@ interface Props {
 
 function getDeclarationCode(type: TypeAliasParser.Json) {
 	const getTypeParameterSection = (param: TypeParameterParser.Json) => {
-		const constraint = getTypeParameter(param.constraint);
-		const defaultValue = getTypeParameter(param.default);
+		const constraint = param.constraint ? getTypeParametersString(param.constraint) : null;
+		const defaultValue = param.default ? getTypeParametersString(param.default) : null;
 
-		return `${param.name}${constraint ? ` extends ${constraint.value}` : ""}${defaultValue ? ` = ${defaultValue.value}` : ""}`;
+		return `${param.name}${constraint ? ` extends ${constraint}` : ""}${defaultValue ? ` = ${defaultValue}` : ""}`;
 	};
 
-	const typeValue = getTypeParameter(type.type)!.value;
+	const typeValue = getTypeParametersString(type.type);
 	const typeParameters = type.typeParameters.length ? type.typeParameters.map(getTypeParameterSection).join(", ") : null;
 
 	return `export declare type ${type.name}${typeParameters ? `<${typeParameters}>` : ""} = ${typeValue};`;

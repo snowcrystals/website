@@ -1,8 +1,7 @@
 import React from "react";
 import type { TypeParameterParser } from "typedoc-json-parser";
 import { ParameterIcon } from "../../Icons";
-import { getTypeParameter } from "../utils/TypeParameter";
-import Link from "next/link";
+import { getTypeParametersReact } from "../utils/TypeParameter";
 
 interface Props {
 	parameters: TypeParameterParser.Json[];
@@ -17,8 +16,8 @@ interface EntryProps {
 }
 
 const TypeParameterEntry: React.FC<EntryProps> = ({ param, pkg, version }) => {
-	const defaultValue = getTypeParameter(param.default);
-	const constraint = getTypeParameter(param.constraint);
+	const defaultValue = param.default ? getTypeParametersReact(param.default, pkg, version) : null;
+	const constraint = param.constraint ? getTypeParametersReact(param.constraint, pkg, version) : null;
 
 	return (
 		<tr className="[&>td]:last-of-type:border-0">
@@ -26,29 +25,13 @@ const TypeParameterEntry: React.FC<EntryProps> = ({ param, pkg, version }) => {
 				{param.name}
 			</td>
 			<td className="border-b dark:border-markdown-dark border-markdown-light px-3 py-2 text-left text-4 font-mono break-words leading-relaxed">
-				{constraint ? (
-					constraint.external ? (
-						constraint.value
-					) : (
-						<Link className="text-primary" href={`/docs/${pkg}/${version}/${constraint.name}:${constraint.id}`}>
-							{constraint.value}
-						</Link>
-					)
-				) : null}
+				{constraint}
 			</td>
 			<td className="border-b dark:border-markdown-dark border-markdown-light px-3 py-2 text-left text-4 capitalize font-mono break-words leading-relaxed">
 				{param.default ? "Yes" : "No"}
 			</td>
 			<td className="border-b dark:border-markdown-dark border-markdown-light px-3 py-2 text-left text-4 font-mono break-words leading-relaxed">
-				{defaultValue ? (
-					defaultValue.external ? (
-						defaultValue.value
-					) : (
-						<Link className="text-primary" href={`/docs/${pkg}/${version}/${defaultValue.name}:${defaultValue.id}`}>
-							{defaultValue.value}
-						</Link>
-					)
-				) : null}
+				{defaultValue}
 			</td>
 		</tr>
 	);
