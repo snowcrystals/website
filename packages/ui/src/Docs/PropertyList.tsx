@@ -20,7 +20,8 @@ interface Props {
 }
 
 export const PropertyList: React.FC<Props> = ({ title, data }) => {
-	const pathname = usePathname();
+	const pathnames = usePathname().split("/");
+	const pathname = pathnames.filter((path) => !path.includes(":")).join("/");
 	const icon = getIcon(title);
 
 	const [visible, setVisible] = useState(true);

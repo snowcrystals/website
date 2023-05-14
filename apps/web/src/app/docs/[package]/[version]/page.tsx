@@ -1,7 +1,7 @@
 import React from "react";
 import { getPackageData } from "@website/doc-parser";
 import { PackageVersionParams } from "./layout";
-import ReadmeMarkdown from "@website/markdown";
+import { ReadmeMarkdown } from "@website/markdown";
 
 const Page = async ({ params }: { params: PackageVersionParams }) => {
 	const project = (await getPackageData(params.package, params.version))!;

@@ -1,6 +1,8 @@
 import axios from "axios";
-import { ProjectParser } from "typedoc-json-parser";
+import { ProjectParser, SourceParser } from "typedoc-json-parser";
 const BASE_URL = "https://docs.snowcrystals.dev/api" as const;
+
+export type iSource = SourceParser.Json;
 
 /**
  * Retrieves and parses the package documentation data
