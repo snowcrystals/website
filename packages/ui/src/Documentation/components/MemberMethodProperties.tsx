@@ -1,7 +1,7 @@
 import React from "react";
 import type { ClassMethodParser, InterfaceMethodParser, ParameterParser, SignatureParser, TypeParameterParser } from "typedoc-json-parser";
 import { getIcon } from "../../Icons";
-import { getTypeParameter } from "../utils/TypeParameter";
+import { getTypeParameter, getTypeParametersString } from "../utils/TypeParameter";
 import Link from "next/link";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import { ReadmeMarkdown } from "@website/markdown";
@@ -59,20 +59,20 @@ const TableEntry: React.FC<TableEntryProps> = ({ param, pkg, version }) => {
 
 const PropertyEntry: React.FC<EntryProps> = ({ property, member, pkg, version }) => {
 	const getTypeParameterSection = (param: TypeParameterParser.Json) => {
-		const constraint = getTypeParameter(param.constraint);
-		const defaultValue = getTypeParameter(param.default);
+		const constraint = param.constraint ? getTypeParametersString(param.constraint) : null;
+		const defaultValue = param.default ? getTypeParametersString(param.default) : null;
 
-		return `${param.name}${constraint ? ` extends ${constraint.value}` : ""}${defaultValue ? ` = ${defaultValue.value}` : ""}`;
+		return `${param.name}${constraint ? ` extends ${constraint}` : ""}${defaultValue ? ` = ${defaultValue}` : ""}`;
 	};
 
 	const getTypeSection = (param: ParameterParser.Json) => {
-		const type = getTypeParameter(param.type)!;
-		return `${param.rest ? "..." : ""}${param.name}${param.optional ? "?" : ""}: ${type.value}`;
+		const type = getTypeParametersString(param.type)!;
+		return `${param.rest ? "..." : ""}${param.name}${param.optional ? "?" : ""}: ${type}`;
 	};
 
 	const parameters = property.parameters.map(getTypeSection).join(", ");
 	const typeParameters = property.typeParameters.map(getTypeParameterSection).join(", ");
-	const returnType = getTypeParameter(property.returnType)!.value;
+	const returnType = getTypeParametersString(property.returnType);
 
 	const accessibility = "accessibility" in member ? `${member.accessibility} ` : "";
 	const abstractFlag = "abstract" in member && member.abstract ? "abstract " : "";

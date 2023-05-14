@@ -1,7 +1,7 @@
 import React from "react";
 import type { ClassConstructorParser, ParameterParser } from "typedoc-json-parser";
 import { getIcon } from "../../Icons";
-import { getTypeParameter } from "../utils/TypeParameter";
+import { getTypeParametersString, getTypeParameter } from "../utils/TypeParameter";
 import Link from "next/link";
 import { ReadmeMarkdown } from "@website/markdown";
 import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
@@ -50,11 +50,11 @@ const TableEntry: React.FC<TableEntryProps> = ({ param, pkg, version }) => {
 
 function getDeclarationCode(type: ClassConstructorParser.Json) {
 	const getTypeParameterSection = (param: ParameterParser.Json) => {
-		const typeValue = getTypeParameter(param.type);
+		const typeValue = getTypeParametersString(param.type);
 		const optional = param.optional ? "?" : "";
 		const rest = param.rest ? "..." : "";
 
-		return `${rest}${param.name}${optional}: ${typeValue!.value}`;
+		return `${rest}${param.name}${optional}: ${typeValue}`;
 	};
 
 	return `constructor(${type.parameters.map(getTypeParameterSection).join(", ")}): this;`;
