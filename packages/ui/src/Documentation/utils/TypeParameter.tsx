@@ -133,7 +133,7 @@ export function getTypeParameter(anyType: TypeParser.Json | null | undefined): G
 				id: null,
 				name: type.value,
 				external: true,
-				value: `"${type.value}"`
+				value: type.value
 			};
 		}
 		case TypeParser.Kind.IndexedAccess: {
