@@ -47,7 +47,6 @@ export const SideNavbar: React.FC<Props> = ({ project: _project, packages, curre
 				opened ? "block" : "hidden"
 			} border rounded-lg dark:border-markdown-dark border-markdown-light fixed top-24 left-4 right-4 z-10 py-4 lg:block mx-auto max-w-5xl lg:w-full lg:h-full lg:sticky dark:bg-dark backdrop-blur-md lg:min-w-5 max-lg:left-2 max-lg:right-2 max-lg:h-[calc(100vh-112px)]`}
 		>
-			{/* @ts-expect-error "not a JSX component" error */}
 			<Scrollbars
 				autoHide
 				className="[&>div]:overscroll-none"

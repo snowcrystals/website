@@ -35,11 +35,14 @@ export const ReadmeMarkdown = ({ content, fullName, version }: Props) => {
 
 	return (
 		<div className="markdown px-4" style={InterFont.style}>
-			{/* @ts-expect-error async component */}
 			<MDXRemote
 				source={content}
 				options={options}
-				components={{ pre: SyntaxHighlighter, table: TableTag, a: (props) => <AnchorTag {...props} fullName={fullName} version={version} /> }}
+				components={{
+					pre: SyntaxHighlighter as any,
+					table: TableTag as any,
+					a: (props) => <AnchorTag {...props} fullName={fullName} version={version} />
+				}}
 			/>
 		</div>
 	);
