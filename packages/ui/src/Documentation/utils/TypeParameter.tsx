@@ -79,7 +79,7 @@ export function getTypeParametersString(anyType: TypeParser.Json): string {
 		}
 		case TypeParser.Kind.Literal: {
 			const type = anyType as LiteralTypeParser.Json;
-			return type.value;
+			return `"${type.value}"`;
 		}
 		case TypeParser.Kind.IndexedAccess: {
 			const type = anyType as IndexedAccessTypeParser.Json;
@@ -143,13 +143,13 @@ export function getTypeParametersString(anyType: TypeParser.Json): string {
 			if (signatures) {
 				const mappedSignatures = signatures.map((signature) => {
 					const name = signature.name === "__type" ? "" : signature.name;
-					const params = signature.parameters.map(
-						(param) => `${param.rest ? "..." : ""}${param.name}${param.optional ? "?" : ""}: ${getTypeParametersString(param.type)}`
-					);
+					const params = signature.parameters
+						.map((param) => `${param.rest ? "..." : ""}${param.name}${param.optional ? "?" : ""}: ${getTypeParametersString(param.type)}`)
+						.join(", ");
 					const typeParams = signature.typeParameters
 						.map(
 							(param) =>
-								`${param.name}${param.constraint ? `extends ${getTypeParametersString(param.constraint)}` : ""}${
+								`${param.name}${param.constraint ? ` extends ${getTypeParametersString(param.constraint)}` : ""}${
 									param.default ? `= ${getTypeParametersString(param.default)}` : ""
 								}`
 						)
@@ -414,7 +414,6 @@ export function getTypeParametersReact(anyType: TypeParser.Json, pkg: string, ve
 							{param.default ? <span>= {getTypeParametersReact(param.default, pkg, version)}</span> : ""}
 						</span>
 					));
-
 					return (
 						<span>
 							{name}{" "}
@@ -427,7 +426,7 @@ export function getTypeParametersReact(anyType: TypeParser.Json, pkg: string, ve
 							) : (
 								""
 							)}
-							({params.reduce((prev, curr) => [prev, ", ", curr] as any)}){" => "}
+							({params.length ? params.reduce((prev, curr) => [prev, ", ", curr] as any) : ""}){" => "}
 							{getTypeParametersReact(signature.returnType, pkg, version)}
 						</span>
 					);
