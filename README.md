@@ -29,13 +29,11 @@
 
 ## Information
 
-- Design stolen from [Discord.js](https://discordjs.dev). Why? Because we liked it, "Beter goed gestolen dan slecht bedacht" - Some Dutch guy
+Design stolen from [Discord.js](https://discordjs.dev). Why? Because we liked it! "Beter goed gestolen dan slecht bedacht" - Some Dutch guy
 
 ## Install
 
-Soon™️
-
-
+Install the dependencies using `yarn install`. Build using `yarn build`, start using `yarn workspace web run start`. Run development mode using `yarn start:dev`.
 
 ## Author
 
