@@ -1611,7 +1611,7 @@ __metadata:
     "@types/react": ^18.2.17
     "@types/react-dom": ^18.2.7
     "@website/fonts": "*"
-    bright: ^0.8.3
+    bright: ^0.8.4
     eslint: ^8.46.0
     next-mdx-remote: ^4.4.1
     react: ^18.2.0
@@ -2138,15 +2138,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bright@npm:^0.8.3":
-  version: 0.8.3
-  resolution: "bright@npm:0.8.3"
+"bright@npm:^0.8.4":
+  version: 0.8.4
+  resolution: "bright@npm:0.8.4"
   dependencies:
     "@code-hike/lighter": 0.8.1
     server-only: ^0.0.1
   peerDependencies:
     react: ^18
-  checksum: 902233a22f43670572c215d8681c1aae58fcc2520fdc3f1b3b0b5e44776cc9400780559f849b5911bfd58a940ae61a2f4ae70fe3add9ade29a8f880ad8fd3ad8
+  checksum: 1d1e9d7157d4d100f70fcbe28476079c76852a3fbabef56148c8e23d2a4dd407ecc7dccd6e07a468606553025a14bed2a721ba2a02f4e4513ce820d5d6401c93
   languageName: node
   linkType: hard
 
