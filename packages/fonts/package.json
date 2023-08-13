@@ -16,6 +16,6 @@
 		"typescript": "^5.1.6"
 	},
 	"dependencies": {
-		"@next/font": "^13.4.12"
+		"@next/font": "^13.4.13"
 	}
 }
