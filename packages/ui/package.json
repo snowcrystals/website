@@ -15,10 +15,10 @@
 		"@website/markdown": "*",
 		"@website/svg": "*",
 		"cmdk": "^0.2.0",
-		"next": "13.4.19",
+		"next": "13.5.2",
 		"next-themes": "0.2.1",
 		"react-custom-scrollbars-2": "^4.5.0",
-		"react-select": "^5.7.4",
+		"react-select": "^5.7.5",
 		"typedoc-json-parser": "^8.2.0"
 	},
 	"devDependencies": {
