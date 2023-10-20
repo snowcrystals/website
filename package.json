@@ -35,7 +35,12 @@
 		"typescript": "5.2.2"
 	},
 	"dependencies": {
-		"next-themes": "^0.2.1"
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.0.0",
+		"lucide-react": "^0.288.0",
+		"next-themes": "^0.2.1",
+		"tailwind-merge": "^1.14.0",
+		"tailwindcss-animate": "^1.0.7"
 	},
 	"engines": {
 		"node": ">= v18.16.0"

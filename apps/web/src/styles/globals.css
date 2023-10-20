@@ -2,96 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-	/* border-color: #ff000050;
-	border-width: 1px; */
-
-	@apply box-border;
-}
-
-@layer components {
-	.markdown a {
-		@apply text-blue-500;
-		@apply hover:text-blue-600;
-		@apply transition-colors;
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 222.2 84% 4.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 222.2 84% 4.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 84% 4.9%;
+		--primary: 221.2 83.2% 53.3%;
+		--primary-foreground: 210 40% 98%;
+		--secondary: 210 40% 96.1%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
+		--muted: 210 40% 96.1%;
+		--muted-foreground: 215.4 16.3% 46.9%;
+		--accent: 210 40% 96.1%;
+		--accent-foreground: 222.2 47.4% 11.2%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 40% 98%;
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%;
+		--ring: 221.2 83.2% 53.3%;
+		--radius: 0.5rem;
 	}
 
-	.markdown p {
-		@apply mt-0 mb-4;
-	}
-
-	.markdown th {
-		@apply py-2 px-3;
-		@apply font-semibold;
-	}
-
-	.markdown tr,
-	.markdown th,
-	.markdown td {
-		border: 1px solid;
-		@apply border border-solid dark:border-markdown-dark border-markdown-light;
-	}
-
-	.markdown td {
-		@apply py-2 px-3;
-	}
-
-	.markdown tr:nth-child(2n) {
-		@apply bg-zinc-800;
-	}
-
-	.markdown pre {
-		font-size: 14px !important;
-		white-space: pre;
-		word-spacing: normal;
-		word-break: normal;
-		line-height: 1.5;
-		tab-size: 4;
-		hyphens: none;
-		padding: 1em;
-		margin: 0.5em 0;
-		overflow: auto;
-		border-radius: 4px;
-	}
-
-	.markdown img {
-		@apply max-w-full;
-	}
-
-	.markdown a {
-		@apply inline-block;
-	}
-
-	.markdown * {
-		@apply leading-[1.5];
-	}
-
-	.markdown h1,
-	.markdown h2 {
-		@apply border-b dark:border-markdown-dark border-markdown-light;
-	}
-
-	.markdown hr {
-		@apply h-1 my-6 border-none;
-		@apply dark:bg-markdown-dark bg-markdown-light;
-	}
-
-	.markdown h1 {
-		@apply text-8;
-	}
-
-	.markdown h2 {
-		@apply text-6;
-	}
-
-	.markdown h1,
-	.markdown h2,
-	.markdown h3,
-	.markdown h4,
-	.markdown h5 {
-		@apply scroll-m-24;
-		@apply font-semibold;
-		@apply my-6;
-		@apply break-all;
+	.dark {
+		--background: 222.2 84% 4.9%;
+		--foreground: 210 40% 98%;
+		--card: 222.2 84% 4.9%;
+		--card-foreground: 210 40% 98%;
+		--popover: 222.2 84% 4.9%;
+		--popover-foreground: 210 40% 98%;
+		--primary: 217.2 91.2% 59.8%;
+		--primary-foreground: 222.2 47.4% 11.2%;
+		--secondary: 217.2 32.6% 17.5%;
+		--secondary-foreground: 210 40% 98%;
+		--muted: 217.2 32.6% 17.5%;
+		--muted-foreground: 215 20.2% 65.1%;
+		--accent: 217.2 32.6% 17.5%;
+		--accent-foreground: 210 40% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 40% 98%;
+		--border: 217.2 32.6% 17.5%;
+		--input: 217.2 32.6% 17.5%;
+		--ring: 224.3 76.3% 48%;
 	}
 }
