@@ -17,9 +17,10 @@ export async function getVersions(pkg: string): Promise<string[] | null> {
 	try {
 		const entries = await readdir(join(DOCS_DIRECTORY, pkg));
 		const versions = entries
-			.filter((str) => str.endsWith(".json") && str !== "main")
-			.reverse()
-			.map((str) => str.replace(".json", ""));
+			.filter((str) => str.endsWith(".json"))
+			.map((str) => str.replace(".json", ""))
+			.filter((str) => str !== "main")
+			.reverse();
 
 		return ["main", ...versions];
 	} catch (err) {
