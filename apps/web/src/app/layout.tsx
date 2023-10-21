@@ -5,8 +5,16 @@ import Providers from "./Providers";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 
 const inter = Inter({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"], display: "swap" });
+
+export const metadata: Metadata = {
+	themeColor: "#9bbdfe",
+	metadataBase: new URL("https://snowcrystals.dev"),
+	title: { template: "Snow Crystals - %s", default: "Snow Crystals" },
+	description: "Documentation for various npm packages built by ijsKoud"
+};
 
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 	return (

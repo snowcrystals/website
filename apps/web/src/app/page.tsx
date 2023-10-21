@@ -1,13 +1,7 @@
 import type React from "react";
-import type { Metadata } from "next";
 import { Button } from "@website/ui/button";
 import { BookTextIcon, GithubIcon, MessageCircleIcon } from "lucide-react";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-	title: "Snow Crystals",
-	description: "Documentation for npm packages by ijsKoud"
-};
 
 const Page: React.FC = () => {
 	return (
