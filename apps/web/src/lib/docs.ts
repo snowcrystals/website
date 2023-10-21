@@ -2,7 +2,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { DOCS_DIRECTORY } from "./constants";
 import { statSync } from "node:fs";
 import { join } from "node:path";
-import { ProjectParser } from "typedoc-json-parser";
+import type { ProjectParser } from "typedoc-json-parser";
 
 /** Returns a list of packages with documentation */
 export async function getPackages() {
@@ -44,7 +44,7 @@ export async function getPackageDocumentation(pkg: string, version: string) {
 		if (!versions || !versions.includes(version)) return null;
 
 		const data = await readFile(join(DOCS_DIRECTORY, pkg, `${version}.json`), "utf-8");
-		return new ProjectParser({ data: JSON.parse(data) });
+		return JSON.parse(data) as ProjectParser.Json;
 	} catch (err) {
 		return null;
 	}

@@ -10,6 +10,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@website/markdown": "*",
 		"@website/ui": "*",
 		"next": "13.5.4",
 		"react": "^18.2.0",
