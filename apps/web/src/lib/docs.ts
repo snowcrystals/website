@@ -1,7 +1,8 @@
-import { readdir } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { DOCS_DIRECTORY } from "./constants";
 import { statSync } from "node:fs";
 import { join } from "node:path";
+import { ProjectParser } from "typedoc-json-parser";
 
 /** Returns a list of packages with documentation */
 export async function getPackages() {
@@ -23,6 +24,27 @@ export async function getVersions(pkg: string): Promise<string[] | null> {
 			.reverse();
 
 		return ["main", ...versions];
+	} catch (err) {
+		return null;
+	}
+}
+
+/**
+ * Returns the documentation for a package
+ * @param pkg The package to get the docs from
+ * @param version The release version
+ * @returns
+ */
+export async function getPackageDocumentation(pkg: string, version: string) {
+	try {
+		const packages = await getPackages();
+		if (!packages.includes(pkg)) return null;
+
+		const versions = await getVersions(pkg);
+		if (!versions || !versions.includes(version)) return null;
+
+		const data = await readFile(join(DOCS_DIRECTORY, pkg, `${version}.json`), "utf-8");
+		return new ProjectParser({ data: JSON.parse(data) });
 	} catch (err) {
 		return null;
 	}
