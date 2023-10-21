@@ -9,6 +9,7 @@
 		"lint": "TIMING=1 eslint"
 	},
 	"devDependencies": {
+		"@radix-ui/react-select": "^2.0.0",
 		"@radix-ui/react-slot": "^1.0.2",
 		"eslint": "^8.51.0",
 		"typescript": "^5.2.2"

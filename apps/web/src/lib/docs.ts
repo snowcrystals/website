@@ -16,6 +16,9 @@ export async function getPackages() {
  */
 export async function getVersions(pkg: string): Promise<string[] | null> {
 	try {
+		const packages = await getPackages();
+		if (!packages.includes(pkg)) return null;
+
 		const entries = await readdir(join(DOCS_DIRECTORY, pkg));
 		const versions = entries
 			.filter((str) => str.endsWith(".json"))
