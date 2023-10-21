@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const Page: React.FC = () => {
 	return (
-		<main className="mt-[25vh]">
+		<main className="mt-[25vh] h-[60vh]">
 			<div className="max-w-5xl py-2 m-auto">
 				<h1 className="text-16 max-lg:text-14 max-md:text-10 max-sm:text-7 font-black text-center leading-tight">
 					Documentation for various npm packages built by <span className="bg-primary py-0.5 px-2 rounded-md">ijsKoud</span>.

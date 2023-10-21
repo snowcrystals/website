@@ -6,6 +6,7 @@ const transpilePackages = readdirSync(join(process.cwd(), "..", "..", "packages"
 /** @type {import('next').NextConfig} */
 const config = {
 	reactStrictMode: true,
+	images: { domains: ["raw.githubusercontent.com"] },
 	redirects: () => {
 		/** @type {import('next').Redirect[]} */
 		const redirects = [
