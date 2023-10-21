@@ -15,7 +15,7 @@ interface Props {
 
 export const NavigationMenu: React.FC<Props> = ({ repository, version }) => {
 	return (
-		<header className="sticky top-4 z-20 border border-muted backdrop-blur-md mx-2 px-4 rounded-lg dark:border-markdown-dark border-markdown-light h-16">
+		<header className="sticky top-4 z-20 border border-muted backdrop-blur-md mx-2 px-4 rounded-lg h-16">
 			<div className="flex items-center justify-between h-full w-full">
 				<BreadCrumbs />
 				{/* <NavMenu /> */}

@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/markdown.css";
 
 import type React from "react";
 import Providers from "./Providers";
