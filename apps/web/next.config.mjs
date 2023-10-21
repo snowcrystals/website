@@ -7,6 +7,7 @@ const transpilePackages = readdirSync(join(process.cwd(), "..", "..", "packages"
 const config = {
 	reactStrictMode: true,
 	images: { domains: ["raw.githubusercontent.com"] },
+	transpilePackages,
 	redirects: () => {
 		/** @type {import('next').Redirect[]} */
 		const redirects = [
@@ -14,8 +15,7 @@ const config = {
 			{ permanent: true, destination: "https://github.com/snowcrystals/:repo", source: "/github/:repo" }
 		];
 		return redirects;
-	},
-	transpilePackages
+	}
 };
 
 export default config;
