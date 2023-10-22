@@ -66,7 +66,7 @@ function getComponent(member: SearchResult, params: PackageMemberParams) {
  * @param input The element
  * @returns
  */
-export function getPackageMember(project: ProjectParser.Json, input: string) {
+function getPackageMember(project: ProjectParser.Json, input: string) {
 	const [name, id] = input.split(":");
 
 	const parser = new ProjectParser({ data: project });
