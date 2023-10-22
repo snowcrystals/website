@@ -69,6 +69,10 @@ interface CommandMenuProps {
 
 const CommandMenu: React.FC<CommandMenuProps> = ({ open, setOpen, project, repository, version }) => {
 	const router = useRouter();
+	const onSelect = (value: string) => {
+		router.push(`/docs/${repository}/${version}/${value}`);
+		setOpen(false);
+	};
 
 	return (
 		<CommandDialog open={open} onOpenChange={setOpen}>
@@ -84,7 +88,7 @@ const CommandMenu: React.FC<CommandMenuProps> = ({ open, setOpen, project, repos
 								<CommandItem
 									value={`${parser.name}:${parser.id}`}
 									key={`${parser.name}:${parser.id}`}
-									onSelect={(value) => router.push(`/docs/${repository}/${version}/${value}`)}
+									onSelect={onSelect}
 									className="cursor-pointer"
 								>
 									{parser.name}

@@ -40,7 +40,7 @@ const Layout = async ({ children, params }: React.PropsWithChildren<{ params: Pa
 				</div>
 				<div className="mx-auto max-w-5xl min-w-[20rem] w-full pb-10 pt-6">
 					{children}
-					<footer className="relative z-0 grid place-items-center pb-4">
+					<footer className="mt-8 grid place-items-center pb-4">
 						<Link href="https://vercel.com/?utm_source=snowcrystals&utm_campaign=oss">
 							<Image
 								src="https://raw.githubusercontent.com/snowcrystals/.github/main/vercel.svg"
