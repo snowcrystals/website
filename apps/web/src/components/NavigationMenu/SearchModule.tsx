@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@website/ui/command";
 import { CommandIcon, SearchIcon } from "lucide-react";
 import { Button } from "@website/ui/button";
-import { PROPERTIES } from "@/lib/constants-client";
+import { PROPERTIES } from "@/lib/constants";
 import type { ProjectParser } from "typedoc-json-parser";
 import { useRouter } from "next/navigation";
 

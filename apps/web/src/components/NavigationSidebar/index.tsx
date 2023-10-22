@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { cn } from "@website/utils";
 import { PropertyList } from "./PropertyList";
 import { useNavigation } from "./UseNavigation";
-import { PROPERTIES } from "@/lib/constants-client";
+import { PROPERTIES } from "@/lib/constants";
 
 interface Props {
 	/** The packages with documentation */

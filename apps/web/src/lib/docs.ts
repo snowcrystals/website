@@ -1,13 +1,16 @@
-import { readFile, readdir } from "node:fs/promises";
-import { DOCS_DIRECTORY } from "./constants";
-import { statSync } from "node:fs";
-import { join } from "node:path";
-import type { ProjectParser } from "typedoc-json-parser";
+import { BASE_API_ROUTE } from "./constants";
+import type { ProjectParser, SearchResult } from "typedoc-json-parser";
 
 /** Returns a list of packages with documentation */
 export async function getPackages() {
-	const entries = await readdir(DOCS_DIRECTORY);
-	return entries.filter((str) => statSync(join(DOCS_DIRECTORY, str)).isDirectory());
+	try {
+		const response = await fetch(`${BASE_API_ROUTE}/packages`);
+		const entries = (await response.json()) as string[];
+
+		return entries;
+	} catch (err) {
+		return [];
+	}
 }
 /**
  * Returns a list of available versions for the provided package
@@ -16,15 +19,9 @@ export async function getPackages() {
  */
 export async function getVersions(pkg: string): Promise<string[] | null> {
 	try {
-		const packages = await getPackages();
-		if (!packages.includes(pkg)) return null;
-
-		const entries = await readdir(join(DOCS_DIRECTORY, pkg));
-		const versions = entries
-			.filter((str) => str.endsWith(".json"))
-			.map((str) => str.replace(".json", ""))
-			.filter((str) => str !== "main")
-			.reverse();
+		const response = await fetch(`${BASE_API_ROUTE}/versions?package=${pkg}`);
+		const entries = (await response.json()) as string[];
+		const versions = entries.filter((str) => str !== "main").reverse();
 
 		return ["main", ...versions];
 	} catch (err) {
@@ -40,14 +37,26 @@ export async function getVersions(pkg: string): Promise<string[] | null> {
  */
 export async function getPackageDocumentation(pkg: string, version: string) {
 	try {
-		const packages = await getPackages();
-		if (!packages.includes(pkg)) return null;
+		const response = await fetch(`${BASE_API_ROUTE}?package=${pkg}&version=${version}`);
+		return (await response.json()) as ProjectParser.Json;
+	} catch (err) {
+		return null;
+	}
+}
 
-		const versions = await getVersions(pkg);
-		if (!versions || !versions.includes(version)) return null;
-
-		const data = await readFile(join(DOCS_DIRECTORY, pkg, `${version}.json`), "utf-8");
-		return JSON.parse(data) as ProjectParser.Json;
+/**
+ * Gets the package member details
+ * @param pkg The package to get the docs from
+ * @param version The release version
+ * @param input The element
+ * @returns
+ */
+export async function getPackageMember(pkg: string, version: string, input: string) {
+	try {
+		const response = await fetch(`${BASE_API_ROUTE}/info?package=${pkg}&version=${version}&member=${input}`);
+		return (await response.json()) as ReturnType<SearchResult["toJSON"]> & {
+			propertyType: "classes" | "enums" | "variables" | "typeAliases" | "interfaces" | "functions" | "namespaces";
+		};
 	} catch (err) {
 		return null;
 	}

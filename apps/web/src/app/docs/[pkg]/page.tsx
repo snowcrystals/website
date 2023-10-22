@@ -20,7 +20,7 @@ const Page: React.FC<{ params: { pkg: string } }> = ({ params }) => {
 			</Suspense>
 
 			<Button variant="default" className="mt-4" asChild>
-				<Link href={`/docs/${params.pkg}`}>
+				<Link href="/docs">
 					<ArrowLeftIcon className="mr-2 h-4 w-4" /> Go back
 				</Link>
 			</Button>
