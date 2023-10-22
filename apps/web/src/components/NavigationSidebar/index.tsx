@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { cn } from "@website/utils";
 import { PropertyList } from "./PropertyList";
 import { useNavigation } from "./UseNavigation";
+import { PROPERTIES } from "@/lib/constants-client";
 
 interface Props {
 	/** The packages with documentation */
@@ -25,8 +26,6 @@ interface Props {
 	/** The project parser data for this package */
 	project: string;
 }
-
-const PROPERTIES = ["classes", "enums", "variables", "typeAliases", "interfaces", "functions", "namespaces"] as const;
 
 export const NavigationSidebar: React.FC<Props> = ({ project: _project, packages, currentPackage, versions, currentVersion }) => {
 	const project = JSON.parse(_project) as ProjectParser.Json;
