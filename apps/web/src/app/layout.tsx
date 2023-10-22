@@ -1,9 +1,19 @@
 import "../styles/globals.css";
+import "../styles/markdown.css";
 
 import type React from "react";
 import Providers from "./Providers";
-import { PoppinsFont } from "@website/fonts";
-import { Footer } from "@website/ui";
+import { Inter } from "next/font/google";
+import { Metadata } from "next";
+
+const inter = Inter({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"], display: "swap" });
+
+export const metadata: Metadata = {
+	themeColor: "#9bbdfe",
+	metadataBase: new URL("https://snowcrystals.dev"),
+	title: { template: "Snow Crystals - %s", default: "Snow Crystals" },
+	description: "Documentation for various npm packages built by ijsKoud"
+};
 
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 	return (
@@ -17,9 +27,8 @@ const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 				<meta name="msapplication-TileColor" content="#9bbdfe" />
 				<meta name="theme-color" content="#9bbdfe" />
 			</head>
-			<body className="dark:bg-dark" style={PoppinsFont.style}>
+			<body className="bg-background" style={inter.style}>
 				<Providers>{children}</Providers>
-				<Footer />
 			</body>
 		</html>
 	);

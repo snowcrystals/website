@@ -1,4 +1,3 @@
-import { InterFont } from "@website/fonts";
 import type React from "react";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
@@ -7,6 +6,7 @@ import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
 import { SyntaxHighlighter } from "./SyntaxHighlighter";
 import AnchorTag from "./AnchorTag";
 import TableTag from "./TableTag";
+import { JetBrains_Mono } from "next/font/google";
 
 interface Props {
 	/** The content to render */
@@ -23,6 +23,14 @@ interface Props {
 	version: string;
 }
 
+export const jetBrainsMono = JetBrains_Mono({
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-mono"
+});
+
+const MarkdownElement = MDXRemote as unknown as React.FC<MDXRemoteProps>;
+
 export const ReadmeMarkdown = ({ content, fullName, version }: Props) => {
 	const options: MDXRemoteProps["options"] = {
 		mdxOptions: {
@@ -34,8 +42,8 @@ export const ReadmeMarkdown = ({ content, fullName, version }: Props) => {
 	};
 
 	return (
-		<div className="markdown px-4" style={InterFont.style}>
-			<MDXRemote
+		<div className="markdown px-4">
+			<MarkdownElement
 				source={content}
 				options={options}
 				components={{

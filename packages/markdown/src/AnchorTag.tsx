@@ -7,7 +7,15 @@ const AnchorTag: React.FC<Props & { fullName: string; version: string }> = ({ fu
 	const hasSlash = _href?.startsWith("/") ?? false;
 	const href = isGitHubLink ? `https://github.com/${fullName}/blob/${version}${hasSlash ? _href : `/${_href}`}` : _href;
 
-	return <a {...props} href={href} target="_blank" rel="noopener noreferrer nofollow" />;
+	return (
+		<a
+			{...props}
+			href={href}
+			target="_blank"
+			rel="noopener noreferrer nofollow"
+			className="text-blue-500 hocus:text-blue-400 transition-colors"
+		/>
+	);
 };
 
 export default AnchorTag;

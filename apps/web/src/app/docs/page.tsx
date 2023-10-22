@@ -1,32 +1,32 @@
-import { DefaultLink } from "@website/buttons";
 import type React from "react";
 import type { Metadata } from "next";
-import { ArrowSmallRightIcon } from "@heroicons/react/20/solid";
-import { getPackages } from "@website/doc-parser";
-import { LandingBackground } from "@website/ui";
+import { Button } from "@website/ui/button";
+import { ArrowLeftIcon } from "lucide-react";
+import PackageSelector, { Loader } from "./PackageSelector";
+import { Suspense } from "react";
+import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-	title: "Snow Crystals",
-	description: "Documentation for npm packages by ijsKoud"
+	title: "Package Selector"
 };
 
-const Page = async () => {
-	const packages = await getPackages();
-
+const Page: React.FC = () => {
 	return (
-		<>
-			<LandingBackground />
-			<main className="h-screen relative z-0 flex items-center justify-center flex-col">
-				<h1 className="text-6 font-medium mb-4">Select a package:</h1>
-				<div className="flex flex-col gap-4">
-					{packages.map((pkg) => (
-						<DefaultLink key={pkg} href={`/docs/${pkg}`} className="w-5 flex items-center justify-between">
-							{pkg} <ArrowSmallRightIcon className="h-8" />
-						</DefaultLink>
-					))}
-				</div>
-			</main>
-		</>
+		<main className="h-screen relative z-0 flex items-center justify-center flex-col">
+			<h1 className="text-6 font-medium mb-4">Select a package:</h1>
+			<Suspense fallback={<Loader />}>
+				<PackageSelector />
+			</Suspense>
+
+			<Button variant="default" className="mt-4" asChild>
+				<Link href="/">
+					<ArrowLeftIcon className="mr-2 h-4 w-4" /> Go back
+				</Link>
+			</Button>
+
+			<Footer />
+		</main>
 	);
 };
 

@@ -16,6 +16,10 @@
 		"incremental": true,
 		"verbatimModuleSyntax": false,
 		"isolatedModules": true,
+		"paths": {
+			"@/lib/*": ["./src/lib/*"],
+			"@/components/*": ["./src/components/*"]
+		},
 		"plugins": [
 			{
 				"name": "next"
