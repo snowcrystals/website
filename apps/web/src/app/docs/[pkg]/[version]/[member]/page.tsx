@@ -18,6 +18,8 @@ import { VariableDocumentation } from "@/components/docs/VariableDocumentation";
 import { TypeAliasDocumentation } from "@/components/docs/TypeAliasDocumentation";
 import { InterfaceDocumentation } from "@/components/docs/InterfaceDocumentation";
 import { EnumDocumentation } from "@/components/docs/EnumDocumentation";
+import { OverloadSwitch } from "@/components/docs/OverloadSwitch";
+import { FunctionDocumentation } from "@/components/docs/FunctionDocumentation";
 
 function getComponent(member: SearchResult, params: PackageMemberParams) {
 	function getType(result: any): "classes" | "enums" | "variables" | "typeAliases" | "interfaces" | "functions" | "namespaces" | null {
@@ -33,13 +35,13 @@ function getComponent(member: SearchResult, params: PackageMemberParams) {
 	}
 
 	switch (getType(member)) {
-		// case "functions": {
-		// 	const overloads = (member as any).signatures.map((signature: any, key: number) => (
-		// 		<FunctionDocumentation key={key} member={member as any} overload={signature} params={params} />
-		// 	));
+		case "functions": {
+			const overloads = (member as any).signatures.map((signature: any, key: number) => (
+				<FunctionDocumentation key={key} member={member as any} overload={signature} params={params} />
+			));
 
-		// 	return <OverloadSwitch overloads={overloads} />;
-		// }
+			return <OverloadSwitch overloads={overloads} />;
+		}
 		case "variables":
 			return <VariableDocumentation member={member as any} />;
 		case "typeAliases":
