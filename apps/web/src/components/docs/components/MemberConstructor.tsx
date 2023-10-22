@@ -5,6 +5,7 @@ import { ReadmeMarkdown } from "@website/markdown";
 import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
 import { getIcon } from "@/components/NavigationSidebar/PropertyIcon";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@website/ui/table";
+import { JetBrains_Mono } from "next/font/google";
 
 interface Props {
 	construct: ClassConstructorParser.Json;
@@ -17,6 +18,11 @@ interface TableEntryProps {
 	pkg: string;
 	version: string;
 }
+
+const jetBrainsMono = JetBrains_Mono({
+	subsets: ["latin"],
+	display: "swap"
+});
 
 const TableEntry: React.FC<TableEntryProps> = ({ param, pkg, version }) => {
 	const typeValue = getTypeParametersJsx(param.type, pkg, version);
@@ -57,9 +63,11 @@ export const MemberConstructor: React.FC<Props> = ({ construct, pkg, version }) 
 			)}
 
 			{construct.comment.blockTags.map((tag) => (
-				<div key={tag.name} className="[&>div.markdown]:!font-mono mt-1 [&>div.markdown]:px-0">
+				<div key={tag.name} className="mt-1">
 					<h3 className="font-semibold text-4">{tag.name}</h3>
-					<ReadmeMarkdown content={tag.text} fullName={`snowcrystals/${pkg}`} version={version} />
+					<div style={jetBrainsMono.style} className="[&>.markdown]:px-0">
+						<ReadmeMarkdown content={tag.text} fullName={`snowcrystals/${pkg}`} version={version} />
+					</div>
 				</div>
 			))}
 
