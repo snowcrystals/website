@@ -32,15 +32,10 @@ export const NavigationSidebar: React.FC<Props> = ({ project: _project, packages
 	const project = JSON.parse(_project) as ProjectParser.Json;
 
 	const { opened } = useNavigation();
-	const { push } = useRouter();
+	const router = useRouter();
 
-	const gotoDocs = (docs?: string) => {
-		if (docs) void push(`/docs/${docs}/main`);
-	};
-
-	const gotoVersion = (version?: string) => {
-		if (version) void push(`/docs/${currentPackage}/${version}`);
-	};
+	const gotoDocs = (docs: string) => router.push(`/docs/${docs}/main`);
+	const gotoVersion = (version: string) => router.push(`/docs/${currentPackage}/${version}`);
 
 	return (
 		<nav
