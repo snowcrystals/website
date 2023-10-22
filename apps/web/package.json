@@ -10,16 +10,14 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@heroicons/react": "^2.0.18",
-		"@website/buttons": "*",
-		"@website/context": "*",
-		"@website/doc-parser": "*",
-		"@website/fonts": "*",
 		"@website/markdown": "*",
 		"@website/ui": "*",
-		"next": "13.5.4",
+		"next": "13.5.6",
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"react-custom-scrollbars-2": "^4.5.0",
+		"react-dom": "^18.2.0",
+		"typedoc": "0.25.2",
+		"typedoc-json-parser": "^9.0.1"
 	},
 	"devDependencies": {
 		"@types/node": "^18.18.6",
