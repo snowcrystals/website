@@ -2,7 +2,7 @@
     <img src="https://raw.githubusercontent.com/snowcrystals/.github/main/logo.png" width="100px" />
     <h1>@snowcrystals/website</h1>
   
-  <p>Guide & documentation websites for Snow Crystals 💻</p>
+  <p>Documentation website for Snow Crystals 💻</p>
   
   <p align="center">
     <a href="/">
