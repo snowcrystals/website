@@ -2,6 +2,7 @@ import type React from "react";
 import { Button } from "@website/ui/button";
 import { BookTextIcon, GithubIcon, MessageCircleIcon } from "lucide-react";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 const Page: React.FC = () => {
 	return (
@@ -33,6 +34,8 @@ const Page: React.FC = () => {
 					</Button>
 				</div>
 			</div>
+
+			<Footer />
 		</main>
 	);
 };

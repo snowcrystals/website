@@ -5,6 +5,7 @@ import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 import VersionSelector, { Loader } from "./VersionSelector";
 import { Suspense } from "react";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
 	title: "Version Selector"
@@ -23,6 +24,8 @@ const Page: React.FC<{ params: { pkg: string } }> = ({ params }) => {
 					<ArrowLeftIcon className="mr-2 h-4 w-4" /> Go back
 				</Link>
 			</Button>
+
+			<Footer />
 		</main>
 	);
 };

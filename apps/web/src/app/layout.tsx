@@ -4,8 +4,6 @@ import "../styles/markdown.css";
 import type React from "react";
 import Providers from "./Providers";
 import { Inter } from "next/font/google";
-import Image from "next/image";
-import Link from "next/link";
 import { Metadata } from "next";
 
 const inter = Inter({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"], display: "swap" });
@@ -31,17 +29,6 @@ const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 			</head>
 			<body className="bg-background" style={inter.style}>
 				<Providers>{children}</Providers>
-
-				<footer className="relative z-0 grid place-items-center pb-4">
-					<Link href="https://vercel.com/?utm_source=snowcrystals&utm_campaign=oss">
-						<Image
-							src="https://raw.githubusercontent.com/snowcrystals/.github/main/vercel.svg"
-							alt="Powered by Vercel"
-							width={212}
-							height={44}
-						/>
-					</Link>
-				</footer>
 			</body>
 		</html>
 	);

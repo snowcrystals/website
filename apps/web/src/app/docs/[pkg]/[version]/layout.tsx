@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { getPackageDocumentation, getPackages, getVersions } from "@/lib/docs";
 import { NavigationMenu } from "@/components/NavigationMenu";
 import { NavigationSidebar } from "@/components/NavigationSidebar";
+import Image from "next/image";
+import Link from "next/link";
 
 export interface PackageVersionParams {
 	pkg: string;
@@ -36,7 +38,19 @@ const Layout = async ({ children, params }: React.PropsWithChildren<{ params: Pa
 						currentVersion={params.version}
 					/>
 				</div>
-				<div className="mx-auto max-w-5xl min-w-[20rem] w-full pb-10 pt-6">{children}</div>
+				<div className="mx-auto max-w-5xl min-w-[20rem] w-full pb-10 pt-6">
+					{children}
+					<footer className="relative z-0 grid place-items-center pb-4">
+						<Link href="https://vercel.com/?utm_source=snowcrystals&utm_campaign=oss">
+							<Image
+								src="https://raw.githubusercontent.com/snowcrystals/.github/main/vercel.svg"
+								alt="Powered by Vercel"
+								width={212}
+								height={44}
+							/>
+						</Link>
+					</footer>
+				</div>
 			</div>
 		</div>
 	);
