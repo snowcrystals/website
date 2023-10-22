@@ -36,7 +36,7 @@ const Layout = async ({ children, params }: React.PropsWithChildren<{ params: Pa
 						currentVersion={params.version}
 					/>
 				</div>
-				<div className="mx-auto max-w-5xl min-w-5 w-full pb-10 pt-6">{children}</div>
+				<div className="mx-auto max-w-5xl min-w-[20rem] w-full pb-10 pt-6">{children}</div>
 			</div>
 		</div>
 	);

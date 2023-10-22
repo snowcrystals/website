@@ -46,7 +46,9 @@ export const NavigationSidebar: React.FC<Props> = ({ project: _project, packages
 		<nav
 			className={cn(
 				opened ? "block" : "hidden",
-				"border rounded-lg border-muted fixed top-24 left-4 right-4 z-10 py-4 lg:block mx-auto max-w-5xl lg:h-full lg:sticky bg-background backdrop-blur-md lg:w-[20rem] max-lg:left-2 max-lg:right-2 max-lg:h-[calc(100vh-112px)]"
+				"border rounded-lg border-muted bg-background backdrop-blur-md",
+				"fixed top-24 left-4 right-4 z-10 lg:block lg:sticky max-lg:left-2 max-lg:right-2",
+				"py-4 mx-auto max-w-5xl lg:h-full lg:w-[20rem] max-lg:h-[calc(100vh-112px)]"
 			)}
 		>
 			<Scrollbars
