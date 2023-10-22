@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useRouter } from "next/navigation";
 import type { ProjectParser } from "typedoc-json-parser";
 import Scrollbars from "react-custom-scrollbars-2";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@website/ui/select";
 import { cn } from "@website/utils";
 import { PropertyList } from "./PropertyList";
+import { useNavigation } from "./UseNavigation";
 
 interface Props {
 	/** The packages with documentation */
@@ -30,7 +31,7 @@ const PROPERTIES = ["classes", "enums", "variables", "typeAliases", "interfaces"
 export const NavigationSidebar: React.FC<Props> = ({ project: _project, packages, currentPackage, versions, currentVersion }) => {
 	const project = JSON.parse(_project) as ProjectParser.Json;
 
-	const [opened] = useState(false);
+	const { opened } = useNavigation();
 	const { push } = useRouter();
 
 	const gotoDocs = (docs?: string) => {
