@@ -8,6 +8,7 @@ import { LinkIcon } from "lucide-react";
 import { OverloadSwitch } from "../OverloadSwitch";
 import { getIcon } from "@/components/NavigationSidebar/PropertyIcon";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@website/ui/table";
+import { Badge } from "@website/ui/badge";
 
 interface Props {
 	properties: (InterfaceMethodParser.Json | ClassMethodParser.Json)[];
@@ -84,9 +85,9 @@ const PropertyEntry: React.FC<EntryProps> = ({ property, member, pkg, version })
 			{Boolean(flags.length) && (
 				<div className="flex items-center gap-2 mt-3">
 					{flags.map((flag) => (
-						<span key={flag} className="bg-primary rounded-full px-4 py-2">
+						<Badge key={flag} variant="default">
 							{flag}
-						</span>
+						</Badge>
 					))}
 				</div>
 			)}
