@@ -2,31 +2,54 @@ import React from "react";
 import { PackageMemberParams } from "./layout";
 import { notFound } from "next/navigation";
 import { getPackageDocumentation } from "@/lib/docs";
-import { ProjectParser } from "typedoc-json-parser";
+import {
+	ClassParser,
+	EnumParser,
+	FunctionParser,
+	InterfaceParser,
+	NamespaceParser,
+	ProjectParser,
+	SearchResult,
+	TypeAliasParser,
+	VariableParser
+} from "typedoc-json-parser";
+import { ClassDocumentation } from "@/components/docs/ClassDocumentation";
 
-// function getComponent(member: PackageDataResult, params: PackageMemberParams) {
-// 	switch (member.propertyType) {
-// 		case "functions": {
-// 			const overloads = (member as any).signatures.map((signature: any, key: number) => (
-// 				<FunctionDocumentation key={key} member={member as any} overload={signature} params={params} />
-// 			));
+function getComponent(member: SearchResult, params: PackageMemberParams) {
+	function getType(result: any): "classes" | "enums" | "variables" | "typeAliases" | "interfaces" | "functions" | "namespaces" | null {
+		if (result instanceof ClassParser) return "classes";
+		else if (result instanceof EnumParser) return "enums";
+		else if (result instanceof VariableParser) return "variables";
+		else if (result instanceof TypeAliasParser) return "typeAliases";
+		else if (result instanceof InterfaceParser) return "interfaces";
+		else if (result instanceof FunctionParser) return "functions";
+		else if (result instanceof NamespaceParser) return "namespaces";
 
-// 			return <OverloadSwitch overloads={overloads} />;
-// 		}
-// 		case "variables":
-// 			return <VariableDocumentation member={member as any} params={params} />;
-// 		case "typeAliases":
-// 			return <TypeAliasDocumentation member={member as any} params={params} />;
-// 		case "interfaces":
-// 			return <InterfaceDocumentation member={member as any} params={params} />;
-// 		case "classes":
-// 			return <ClassDocumentation member={member as any} params={params} />;
-// 		case "enums":
-// 			return <EnumDocumentation member={member as any} params={params} />;
-// 	}
+		return null;
+	}
 
-// 	return null;
-// }
+	switch (getType(member)) {
+		// case "functions": {
+		// 	const overloads = (member as any).signatures.map((signature: any, key: number) => (
+		// 		<FunctionDocumentation key={key} member={member as any} overload={signature} params={params} />
+		// 	));
+
+		// 	return <OverloadSwitch overloads={overloads} />;
+		// }
+		// case "variables":
+		// 	return <VariableDocumentation member={member as any} params={params} />;
+		// case "typeAliases":
+		// 	return <TypeAliasDocumentation member={member as any} params={params} />;
+		// case "interfaces":
+		// 	return <InterfaceDocumentation member={member as any} params={params} />;
+		case "classes":
+			return <ClassDocumentation member={member as any} params={params} />;
+		// case "enums":
+		// 	return <EnumDocumentation member={member as any} params={params} />;
+	}
+
+	return null;
+}
 
 /**
  * Gets the package member details
@@ -49,7 +72,10 @@ const Page: React.FC<{ params: PackageMemberParams }> = async ({ params }) => {
 	const member = getPackageMember(project, decodeURIComponent(params.member));
 	if (!member) notFound();
 
-	return <main className="px-4 [&>.markdown]:px-0 min-h-screen">{member.name}</main>;
+	const component = getComponent(member, params);
+	if (!component) notFound();
+
+	return <main className="px-4 [&>.markdown]:px-0 min-h-screen">{component}</main>;
 };
 
 export default Page;
