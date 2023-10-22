@@ -14,6 +14,7 @@ import {
 	VariableParser
 } from "typedoc-json-parser";
 import { ClassDocumentation } from "@/components/docs/ClassDocumentation";
+import { VariableDocumentation } from "@/components/docs/VariableDocumentation";
 
 function getComponent(member: SearchResult, params: PackageMemberParams) {
 	function getType(result: any): "classes" | "enums" | "variables" | "typeAliases" | "interfaces" | "functions" | "namespaces" | null {
@@ -36,8 +37,8 @@ function getComponent(member: SearchResult, params: PackageMemberParams) {
 
 		// 	return <OverloadSwitch overloads={overloads} />;
 		// }
-		// case "variables":
-		// 	return <VariableDocumentation member={member as any} params={params} />;
+		case "variables":
+			return <VariableDocumentation member={member as any} />;
 		// case "typeAliases":
 		// 	return <TypeAliasDocumentation member={member as any} params={params} />;
 		// case "interfaces":
