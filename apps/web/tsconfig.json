@@ -17,7 +17,8 @@
 		"verbatimModuleSyntax": false,
 		"isolatedModules": true,
 		"paths": {
-			"@/lib/*": ["./src/lib/*"]
+			"@/lib/*": ["./src/lib/*"],
+			"@/components/*": ["./src/components/*"]
 		},
 		"plugins": [
 			{
