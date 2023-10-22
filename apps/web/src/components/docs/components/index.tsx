@@ -6,3 +6,4 @@ export * from "./MemberMethodProperties";
 export * from "./MemberEnums";
 export * from "./MemberTypeParameters";
 export * from "./MemberParameters";
+export * from "./MemberNamespace";

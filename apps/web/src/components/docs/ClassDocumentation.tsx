@@ -36,7 +36,6 @@ export const ClassDocumentation: React.FC<Props> = ({ member, params }) => {
 				<MemberConstructor construct={member.construct} pkg={params.pkg} version={params.version} />
 
 				{Boolean(member.properties.length) && <MemberProperties properties={member.properties} pkg={params.pkg} version={params.version} />}
-
 				{Boolean(member.methods.length) && <MemberMethodProperties properties={member.methods} pkg={params.pkg} version={params.version} />}
 			</div>
 		</div>

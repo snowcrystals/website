@@ -20,6 +20,7 @@ import { InterfaceDocumentation } from "@/components/docs/InterfaceDocumentation
 import { EnumDocumentation } from "@/components/docs/EnumDocumentation";
 import { OverloadSwitch } from "@/components/docs/OverloadSwitch";
 import { FunctionDocumentation } from "@/components/docs/FunctionDocumentation";
+import { NamespaceDocumentation } from "@/components/docs/NamespaceDocumentation";
 
 function getComponent(member: SearchResult, params: PackageMemberParams) {
 	function getType(result: any): "classes" | "enums" | "variables" | "typeAliases" | "interfaces" | "functions" | "namespaces" | null {
@@ -52,9 +53,11 @@ function getComponent(member: SearchResult, params: PackageMemberParams) {
 			return <ClassDocumentation member={member as any} params={params} />;
 		case "enums":
 			return <EnumDocumentation member={member as any} params={params} />;
+		case "namespaces":
+			return <NamespaceDocumentation member={member as any} params={params} />;
+		default:
+			return null;
 	}
-
-	return null;
 }
 
 /**
