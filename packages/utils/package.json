@@ -9,8 +9,8 @@
 		"lint": "TIMING=1 eslint"
 	},
 	"devDependencies": {
-		"@types/react": "^18.2.64",
-		"@types/react-dom": "^18.2.21",
+		"@types/react": "^18.2.66",
+		"@types/react-dom": "^18.2.22",
 		"eslint": "^8.57.0",
 		"react": "^18.2.0",
 		"typescript": "^5.4.2"
