@@ -1,7 +1,7 @@
 import React from "react";
 import type { TypeAliasParser, TypeParameterParser } from "typedoc-json-parser";
 
-import { SyntaxHighlighter } from "@/components/markdown/src/SyntaxHighlighter";
+import { SyntaxHighlighter } from "@/components/markdown/SyntaxHighlighter";
 
 import { MemberDescription, MemberTitle } from "./components";
 import { getTypeParametersString } from "./TypeParameterParsers";

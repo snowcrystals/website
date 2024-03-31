@@ -3,7 +3,7 @@ import React from "react";
 import type { ClassConstructorParser, ParameterParser } from "typedoc-json-parser";
 
 import { ReadmeMarkdown } from "@/components/markdown";
-import { SyntaxHighlighter } from "@/components/markdown/src/SyntaxHighlighter";
+import { SyntaxHighlighter } from "@/components/markdown/SyntaxHighlighter";
 import { getIcon } from "@/components/NavigationSidebar/PropertyIcon";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
