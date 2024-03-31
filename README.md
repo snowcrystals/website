@@ -33,7 +33,7 @@ Design stolen from [Discord.js](https://discordjs.dev). Why? Because we liked it
 
 ## Install
 
-Install the dependencies using `yarn install`. Build using `yarn build`, start using `yarn workspace web run start`. Run development mode using `yarn start:dev`.
+Install the dependencies using `pnpm install`. Build using `pnpm build`, start using `pnpm run start --filter=web`. Run development mode using `pnpm start:dev`.
 
 ## Author
 
