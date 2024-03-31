@@ -1,13 +1,15 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
 import { GithubIcon } from "lucide-react";
-import { Button } from "@website/ui/button";
+import Link from "next/link";
+import React from "react";
+
+import { Button } from "@/components/ui/button";
+
 import { BreadCrumbs } from "./BreadCrumbs";
 import { NavMenuButton } from "./NavigationMenuButton";
 import SearchModule from "./SearchModule";
+import ThemeToggle from "./ThemeToggle";
 
 interface Props {
 	project: string;

@@ -1,9 +1,11 @@
 import React from "react";
 import type { ClassParser, TypeParameterParser } from "typedoc-json-parser";
+
+import { SyntaxHighlighter } from "@/components/markdown/src/SyntaxHighlighter";
+
+import type { PackageMemberParams } from "../../app/docs/[pkg]/[version]/[member]/layout";
 import { MemberConstructor, MemberDescription, MemberMethodProperties, MemberProperties, MemberTitle } from "./components";
-import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
 import { getTypeParametersString } from "./TypeParameterParsers";
-import { PackageMemberParams } from "../../app/docs/[pkg]/[version]/[member]/layout";
 
 interface Props {
 	member: ClassParser.Json;

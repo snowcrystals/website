@@ -1,11 +1,12 @@
-import type React from "react";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { getPackageDocumentation, getPackages, getVersions } from "@/lib/docs";
-import { NavigationMenu } from "@/components/NavigationMenu";
-import { NavigationSidebar } from "@/components/NavigationSidebar";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import type React from "react";
+
+import { NavigationMenu } from "@/components/NavigationMenu";
+import { NavigationSidebar } from "@/components/NavigationSidebar";
+import { getPackageDocumentation, getPackages, getVersions } from "@/lib/docs";
 
 export interface PackageVersionParams {
 	pkg: string;

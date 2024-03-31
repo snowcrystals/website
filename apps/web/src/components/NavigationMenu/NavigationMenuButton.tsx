@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
-import { useNavigation } from "../NavigationSidebar/UseNavigation";
 import { MenuIcon, XIcon } from "lucide-react";
+import React from "react";
+
+import { useNavigation } from "../NavigationSidebar/UseNavigation";
 
 export const NavMenuButton: React.FC = () => {
 	const { opened, setOpened } = useNavigation();

@@ -1,5 +1,6 @@
-import { BASE_API_ROUTE } from "./constants";
 import type { ProjectParser, SearchResult } from "typedoc-json-parser";
+
+import { BASE_API_ROUTE } from "./constants";
 
 /** Returns a list of packages with documentation */
 export async function getPackages() {

@@ -1,8 +1,10 @@
 import React from "react";
 import type { NamespaceParser } from "typedoc-json-parser";
-import { MemberDescription, MemberTitle, MemberNamespace } from "./components";
-import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
-import { PackageMemberParams } from "../../app/docs/[pkg]/[version]/[member]/layout";
+
+import { SyntaxHighlighter } from "@/components/markdown/src/SyntaxHighlighter";
+
+import type { PackageMemberParams } from "../../app/docs/[pkg]/[version]/[member]/layout";
+import { MemberDescription, MemberNamespace, MemberTitle } from "./components";
 
 interface Props {
 	member: NamespaceParser.Json;

@@ -1,8 +1,9 @@
+import Link from "next/link";
 import React from "react";
 import type { ClassParser, EnumParser, FunctionParser, InterfaceParser, NamespaceParser, TypeAliasParser, VariableParser } from "typedoc-json-parser";
-import Link from "next/link";
+
 import { getIcon } from "@/components/NavigationSidebar/PropertyIcon";
-import { Button } from "@website/ui/button";
+import { Button } from "@/components/ui/button";
 
 type Parser =
 	| ClassParser.Json

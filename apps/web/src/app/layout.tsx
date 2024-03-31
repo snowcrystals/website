@@ -1,10 +1,11 @@
 import "../styles/globals.css";
 import "../styles/markdown.css";
 
-import type React from "react";
-import Providers from "./Providers";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Metadata } from "next";
+import type React from "react";
+
+import Providers from "./Providers";
 
 const inter = Inter({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"], display: "swap" });
 

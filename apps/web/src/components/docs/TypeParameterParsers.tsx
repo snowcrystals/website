@@ -3,25 +3,25 @@ import type React from "react";
 import {
 	type ArrayTypeParser,
 	type ConditionalTypeParser,
+	type IndexedAccessTypeParser,
 	type InferredTypeParser,
-	type UnionTypeParser,
-	type ReferenceTypeParser,
-	TypeParser,
-	type RestTypeParser,
-	type UnknownTypeParser,
+	type IntersectionTypeParser,
 	type IntrinsicTypeParser,
 	type LiteralTypeParser,
-	type IndexedAccessTypeParser,
-	type OptionalTypeParser,
-	type TupleTypeParser,
-	type IntersectionTypeParser,
+	type MappedTypeParser,
 	type NamedTupleMemberTypeParser,
+	type OptionalTypeParser,
 	type PredicateTypeParser,
 	type QueryTypeParser,
+	type ReferenceTypeParser,
+	type ReflectionTypeParser,
+	type RestTypeParser,
 	type TemplateLiteralTypeParser,
-	type MappedTypeParser,
+	type TupleTypeParser,
 	type TypeOperatorTypeParser,
-	ReflectionTypeParser
+	TypeParser,
+	type UnionTypeParser,
+	type UnknownTypeParser
 } from "typedoc-json-parser";
 
 function isSpecial(str: string): boolean {

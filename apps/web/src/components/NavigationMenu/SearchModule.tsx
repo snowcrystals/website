@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@website/ui/command";
 import { CommandIcon, SearchIcon } from "lucide-react";
-import { Button } from "@website/ui/button";
-import { PROPERTIES } from "@/lib/constants";
-import type { ProjectParser } from "typedoc-json-parser";
 import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import type { ProjectParser } from "typedoc-json-parser";
+
+import { Button } from "@/components/ui/button";
+import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { PROPERTIES } from "@/lib/constants";
 
 interface Props {
 	project: string;

@@ -1,8 +1,10 @@
 import React from "react";
 import type { TypeParameterParser } from "typedoc-json-parser";
-import { ParameterIcon } from "@website/ui/icons/parameter-icon";
+
+import { ParameterIcon } from "@/components/ui/icons/parameter-icon";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
 import { getTypeParametersJsx } from "../TypeParameterParsers";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@website/ui/table";
 
 interface Props {
 	parameters: TypeParameterParser.Json[];

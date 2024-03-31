@@ -1,12 +1,13 @@
+import { JetBrains_Mono } from "next/font/google";
+import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
 import type React from "react";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
-import { SyntaxHighlighter } from "./SyntaxHighlighter";
+
 import AnchorTag from "./AnchorTag";
+import { SyntaxHighlighter } from "./SyntaxHighlighter";
 import TableTag from "./TableTag";
-import { JetBrains_Mono } from "next/font/google";
 
 interface Props {
 	/** The content to render */

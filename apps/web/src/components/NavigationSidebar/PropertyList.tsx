@@ -1,10 +1,11 @@
 "use client";
 
+import { ChevronDownIcon } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import type { ClassParser, EnumParser, VariableParser, TypeAliasParser, InterfaceParser, FunctionParser, NamespaceParser } from "typedoc-json-parser";
-import Link from "next/link";
-import { ChevronDownIcon } from "lucide-react";
+import type { ClassParser, EnumParser, FunctionParser, InterfaceParser, NamespaceParser, TypeAliasParser, VariableParser } from "typedoc-json-parser";
+
 import { getIcon } from "./PropertyIcon";
 
 interface Props {

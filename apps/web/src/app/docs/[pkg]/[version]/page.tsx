@@ -1,7 +1,9 @@
 import React from "react";
-import { ReadmeMarkdown } from "@website/markdown";
-import { PackageVersionParams } from "./layout";
+
+import { ReadmeMarkdown } from "@/components/markdown";
 import { getPackageDocumentation } from "@/lib/docs";
+
+import type { PackageVersionParams } from "./layout";
 
 const Page: React.FC<{ params: PackageVersionParams }> = async ({ params }) => {
 	const project = (await getPackageDocumentation(params.pkg, params.version))!;

@@ -1,11 +1,13 @@
-import type React from "react";
-import type { Metadata } from "next";
-import { Button } from "@website/ui/button";
 import { ArrowLeftIcon } from "lucide-react";
-import PackageSelector, { Loader } from "./PackageSelector";
-import { Suspense } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
+import type React from "react";
+import { Suspense } from "react";
+
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+
+import PackageSelector, { Loader } from "./PackageSelector";
 
 export const metadata: Metadata = {
 	title: "Package Selector"

@@ -1,5 +1,6 @@
-import { SnowFlakeIcon } from "@website/ui/snowflake-icon";
 import type React from "react";
+
+import { SnowFlakeIcon } from "@/components/ui/snowflake-icon";
 
 /** Loading Spinner component */
 export const Loading: React.FC = () => {

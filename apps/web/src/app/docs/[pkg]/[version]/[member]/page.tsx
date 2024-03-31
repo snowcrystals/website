@@ -1,15 +1,17 @@
-import React from "react";
-import { PackageMemberParams } from "./layout";
 import { notFound } from "next/navigation";
-import { getPackageDocumentation, getPackageMember } from "@/lib/docs";
+import React from "react";
+
 import { ClassDocumentation } from "@/components/docs/ClassDocumentation";
-import { VariableDocumentation } from "@/components/docs/VariableDocumentation";
-import { TypeAliasDocumentation } from "@/components/docs/TypeAliasDocumentation";
-import { InterfaceDocumentation } from "@/components/docs/InterfaceDocumentation";
 import { EnumDocumentation } from "@/components/docs/EnumDocumentation";
-import { OverloadSwitch } from "@/components/docs/OverloadSwitch";
 import { FunctionDocumentation } from "@/components/docs/FunctionDocumentation";
+import { InterfaceDocumentation } from "@/components/docs/InterfaceDocumentation";
 import { NamespaceDocumentation } from "@/components/docs/NamespaceDocumentation";
+import { OverloadSwitch } from "@/components/docs/OverloadSwitch";
+import { TypeAliasDocumentation } from "@/components/docs/TypeAliasDocumentation";
+import { VariableDocumentation } from "@/components/docs/VariableDocumentation";
+import { getPackageDocumentation, getPackageMember } from "@/lib/docs";
+
+import type { PackageMemberParams } from "./layout";
 
 function getComponent(member: NonNullable<Awaited<ReturnType<typeof getPackageMember>>>, params: PackageMemberParams) {
 	switch (member.propertyType) {

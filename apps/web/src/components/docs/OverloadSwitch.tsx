@@ -1,7 +1,8 @@
 "use client";
 
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@website/ui/select";
 import React, { useMemo, useState } from "react";
+
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface Props {
 	overloads: React.ReactNode[];

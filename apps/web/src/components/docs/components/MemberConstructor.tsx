@@ -1,11 +1,13 @@
+import { JetBrains_Mono } from "next/font/google";
 import React from "react";
 import type { ClassConstructorParser, ParameterParser } from "typedoc-json-parser";
-import { getTypeParametersString, getTypeParametersJsx } from "../TypeParameterParsers";
-import { ReadmeMarkdown } from "@website/markdown";
-import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
+
+import { ReadmeMarkdown } from "@/components/markdown";
+import { SyntaxHighlighter } from "@/components/markdown/src/SyntaxHighlighter";
 import { getIcon } from "@/components/NavigationSidebar/PropertyIcon";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@website/ui/table";
-import { JetBrains_Mono } from "next/font/google";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+import { getTypeParametersJsx, getTypeParametersString } from "../TypeParameterParsers";
 
 interface Props {
 	construct: ClassConstructorParser.Json;

@@ -1,5 +1,6 @@
-import { Code, type BrightProps } from "bright";
+import { type BrightProps, Code } from "bright";
 import React from "react";
+
 import { jetBrainsMono } from "./ReadmeMarkdown";
 
 export const SyntaxHighlighter: React.FC<Partial<BrightProps>> = (props) => {

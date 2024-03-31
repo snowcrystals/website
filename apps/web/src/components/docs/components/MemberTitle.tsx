@@ -1,9 +1,10 @@
-import React from "react";
-import Link from "next/link";
-import { SourceParser } from "typedoc-json-parser";
 import { Code2Icon } from "lucide-react";
+import Link from "next/link";
+import React from "react";
+import type { SourceParser } from "typedoc-json-parser";
+
 import { getIcon } from "@/components/NavigationSidebar/PropertyIcon";
-import { Button } from "@website/ui/button";
+import { Button } from "@/components/ui/button";
 
 interface Props {
 	source: SourceParser.Json | null;

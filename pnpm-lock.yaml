@@ -7,28 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      class-variance-authority:
-        specifier: ^0.7.0
-        version: 0.7.0
-      clsx:
-        specifier: ^2.0.0
-        version: 2.1.0
-      lucide-react:
-        specifier: ^0.292.0
-        version: 0.292.0(react@18.2.0)
-      next-themes:
-        specifier: ^0.2.1
-        version: 0.2.1(next@14.0.1)(react-dom@18.2.0)(react@18.2.0)
-      tailwind-merge:
-        specifier: ^2.0.0
-        version: 2.2.2
-      tailwindcss:
-        specifier: 3.4.3
-        version: 3.4.3
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.3)
     devDependencies:
       '@sapphire/ts-config':
         specifier: ^5.0.1
@@ -72,15 +50,39 @@ importers:
 
   apps/web:
     dependencies:
-      '@website/markdown':
-        specifier: '*'
-        version: link:../../packages/markdown
-      '@website/ui':
-        specifier: '*'
-        version: link:../../packages/ui
+      '@radix-ui/react-dialog':
+        specifier: ^1.0.5
+        version: 1.0.5(@types/react-dom@18.2.23)(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-select':
+        specifier: ^2.0.0
+        version: 2.0.0(@types/react-dom@18.2.23)(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-slot':
+        specifier: ^1.0.2
+        version: 1.0.2(@types/react@18.2.73)(react@18.2.0)
+      bright:
+        specifier: ^0.8.4
+        version: 0.8.5(react@18.2.0)
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
+      clsx:
+        specifier: ^2.0.0
+        version: 2.1.0
+      cmdk:
+        specifier: ^0.2.0
+        version: 0.2.1(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0)
+      lucide-react:
+        specifier: ^0.292.0
+        version: 0.292.0(react@18.2.0)
       next:
         specifier: 14.0.1
         version: 14.0.1(react-dom@18.2.0)(react@18.2.0)
+      next-mdx-remote:
+        specifier: ^4.4.1
+        version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
+      next-themes:
+        specifier: ^0.2.1
+        version: 0.2.1(next@14.0.1)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -90,6 +92,21 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      rehype-raw:
+        specifier: ^6.1.1
+        version: 6.1.1
+      rehype-slug:
+        specifier: ^6.0.0
+        version: 6.0.0
+      remark-gfm:
+        specifier: ^4.0.0
+        version: 4.0.0
+      tailwind-merge:
+        specifier: ^2.0.0
+        version: 2.2.2
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.3)
       typedoc:
         specifier: 0.25.3
         version: 0.25.3(typescript@5.4.3)
@@ -118,92 +135,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
-      typescript:
-        specifier: ^5.4.3
-        version: 5.4.3
-
-  packages/markdown:
-    dependencies:
-      bright:
-        specifier: ^0.8.4
-        version: 0.8.5(react@18.2.0)
-      next:
-        specifier: 14.0.1
-        version: 14.0.1(react-dom@18.2.0)(react@18.2.0)
-      next-mdx-remote:
-        specifier: ^4.4.1
-        version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
-      rehype-raw:
-        specifier: ^6.1.1
-        version: 6.1.1
-      rehype-slug:
-        specifier: ^6.0.0
-        version: 6.0.0
-      remark-gfm:
-        specifier: ^4.0.0
-        version: 4.0.0
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.73
-        version: 18.2.73
-      '@types/react-dom':
-        specifier: ^18.2.23
-        version: 18.2.23
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      typescript:
-        specifier: ^5.4.3
-        version: 5.4.3
-
-  packages/ui:
-    dependencies:
-      '@radix-ui/react-dialog':
-        specifier: ^1.0.5
-        version: 1.0.5(@types/react-dom@18.2.23)(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-select':
-        specifier: ^2.0.0
-        version: 2.0.0(@types/react-dom@18.2.23)(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-slot':
-        specifier: ^1.0.2
-        version: 1.0.2(@types/react@18.2.73)(react@18.2.0)
-      cmdk:
-        specifier: ^0.2.0
-        version: 0.2.1(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0)
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.73
-        version: 18.2.73
-      '@types/react-dom':
-        specifier: ^18.2.23
-        version: 18.2.23
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      typescript:
-        specifier: ^5.4.3
-        version: 5.4.3
-
-  packages/utils:
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.73
-        version: 18.2.73
-      '@types/react-dom':
-        specifier: ^18.2.23
-        version: 18.2.23
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
       typescript:
         specifier: ^5.4.3
         version: 5.4.3
@@ -4983,6 +4914,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}

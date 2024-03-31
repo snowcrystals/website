@@ -1,8 +1,9 @@
 "use client";
 
-import { UseNavigationProvider } from "@/components/NavigationSidebar/UseNavigation";
 import { ThemeProvider } from "next-themes";
 import React from "react";
+
+import { UseNavigationProvider } from "@/components/NavigationSidebar/UseNavigation";
 
 const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
 	return (

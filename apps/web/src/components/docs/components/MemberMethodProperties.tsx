@@ -1,14 +1,16 @@
+import { LinkIcon } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 import type { ClassMethodParser, InterfaceMethodParser, ParameterParser, SignatureParser, TypeParameterParser } from "typedoc-json-parser";
-import Link from "next/link";
-import { ReadmeMarkdown } from "@website/markdown";
-import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
-import { getTypeParametersJsx, getTypeParametersString } from "../TypeParameterParsers";
-import { LinkIcon } from "lucide-react";
-import { OverloadSwitch } from "../OverloadSwitch";
+
+import { ReadmeMarkdown } from "@/components/markdown";
+import { SyntaxHighlighter } from "@/components/markdown/SyntaxHighlighter";
 import { getIcon } from "@/components/NavigationSidebar/PropertyIcon";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@website/ui/table";
-import { Badge } from "@website/ui/badge";
+import { Badge } from "@/components/ui/badge";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+import { OverloadSwitch } from "../OverloadSwitch";
+import { getTypeParametersJsx, getTypeParametersString } from "../TypeParameterParsers";
 
 interface Props {
 	properties: (InterfaceMethodParser.Json | ClassMethodParser.Json)[];

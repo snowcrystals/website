@@ -1,10 +1,11 @@
+import { LinkIcon } from "lucide-react";
+import { JetBrains_Mono } from "next/font/google";
+import Link from "next/link";
 import React from "react";
 import type { EnumMemberParser } from "typedoc-json-parser";
-import { PropertyIcon } from "@website/ui/icons/property-icon";
-import Link from "next/link";
-import { ReadmeMarkdown } from "@website/markdown";
-import { JetBrains_Mono } from "next/font/google";
-import { LinkIcon } from "lucide-react";
+
+import { ReadmeMarkdown } from "@/components/markdown";
+import { PropertyIcon } from "@/components/ui/icons/property-icon";
 
 interface Props {
 	members: EnumMemberParser.Json[];

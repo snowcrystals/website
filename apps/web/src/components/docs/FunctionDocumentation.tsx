@@ -1,9 +1,11 @@
 import React from "react";
 import type { FunctionParser, ParameterParser, SignatureParser, TypeParameterParser } from "typedoc-json-parser";
+
+import { SyntaxHighlighter } from "@/components/markdown/src/SyntaxHighlighter";
+
+import type { PackageMemberParams } from "../../app/docs/[pkg]/[version]/[member]/layout";
 import { MemberDescription, MemberParameters, MemberTitle, MemberTypeParameters } from "./components";
-import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
 import { getTypeParametersString } from "./TypeParameterParsers";
-import { PackageMemberParams } from "../../app/docs/[pkg]/[version]/[member]/layout";
 
 interface Props {
 	overload: SignatureParser.Json;

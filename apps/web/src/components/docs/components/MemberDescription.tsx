@@ -1,8 +1,9 @@
-import { ReadmeMarkdown } from "@website/markdown";
-import React from "react";
 import { FileTextIcon } from "lucide-react";
-import type { CommentParser } from "typedoc-json-parser";
 import { JetBrains_Mono } from "next/font/google";
+import React from "react";
+import type { CommentParser } from "typedoc-json-parser";
+
+import { ReadmeMarkdown } from "@/components/markdown";
 
 interface Props {
 	comment: CommentParser.Json;

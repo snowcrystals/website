@@ -1,9 +1,10 @@
-import React from "react";
-import { getPackages } from "@/lib/docs";
-import { Skeleton } from "@website/ui/skeleton";
-import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
-import { Button } from "@website/ui/button";
+import Link from "next/link";
+import React from "react";
+
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { getPackages } from "@/lib/docs";
 
 const PackageSelector: React.FC = async () => {
 	const packages = await getPackages();

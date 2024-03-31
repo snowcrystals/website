@@ -1,9 +1,10 @@
 "use client";
 
-import { Button } from "@website/ui/button";
-import { SnowFlakeIcon } from "@website/ui/snowflake-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+import { Button } from "@/components/ui/button";
+import { SnowFlakeIcon } from "@/components/ui/snowflake-icon";
 
 const NotFound: React.FC = () => {
 	const pathnames = usePathname().split("/");

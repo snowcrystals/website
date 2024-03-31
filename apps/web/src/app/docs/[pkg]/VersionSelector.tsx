@@ -1,10 +1,11 @@
-import React from "react";
-import { getVersions } from "@/lib/docs";
-import { Skeleton } from "@website/ui/skeleton";
-import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
-import { Button } from "@website/ui/button";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import React from "react";
+
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { getVersions } from "@/lib/docs";
 
 const VersionSelector: React.FC<{ pkg: string }> = async ({ pkg }) => {
 	const versions = await getVersions(pkg);

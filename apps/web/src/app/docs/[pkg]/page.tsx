@@ -1,11 +1,13 @@
-import type React from "react";
-import type { Metadata } from "next";
-import { Button } from "@website/ui/button";
 import { ArrowLeftIcon } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
-import VersionSelector, { Loader } from "./VersionSelector";
+import type React from "react";
 import { Suspense } from "react";
+
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+
+import VersionSelector, { Loader } from "./VersionSelector";
 
 export const metadata: Metadata = {
 	title: "Version Selector"

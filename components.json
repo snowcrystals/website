@@ -4,8 +4,8 @@
 	"rsc": true,
 	"style": "default",
 	"aliases": {
-		"utils": "@website/utils",
-		"components": "@website/ui"
+		"utils": "@/lib/utils",
+		"components": "@/components"
 	},
 	"tailwind": {
 		"baseColor": "zinc",

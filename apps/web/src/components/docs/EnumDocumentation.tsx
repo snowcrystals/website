@@ -1,8 +1,10 @@
 import React from "react";
 import type { EnumParser } from "typedoc-json-parser";
+
+import { SyntaxHighlighter } from "@/components/markdown/SyntaxHighlighter";
+
+import type { PackageMemberParams } from "../../app/docs/[pkg]/[version]/[member]/layout";
 import { MemberDescription, MemberEnums, MemberTitle } from "./components";
-import { SyntaxHighlighter } from "@website/markdown/src/SyntaxHighlighter";
-import { PackageMemberParams } from "../../app/docs/[pkg]/[version]/[member]/layout";
 
 interface Props {
 	member: EnumParser.Json;

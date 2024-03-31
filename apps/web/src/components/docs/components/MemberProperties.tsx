@@ -1,11 +1,13 @@
+import { LinkIcon } from "lucide-react";
+import { JetBrains_Mono } from "next/font/google";
+import Link from "next/link";
 import React from "react";
 import type { ClassPropertyParser, PropertyParser } from "typedoc-json-parser";
-import Link from "next/link";
-import { ReadmeMarkdown } from "@website/markdown";
-import { LinkIcon } from "lucide-react";
+
+import { ReadmeMarkdown } from "@/components/markdown";
+import { PropertyIcon } from "@/components/ui/icons/property-icon";
+
 import { getTypeParametersJsx } from "../TypeParameterParsers";
-import { PropertyIcon } from "@website/ui/icons/property-icon";
-import { JetBrains_Mono } from "next/font/google";
 
 interface Props {
 	properties: (PropertyParser.Json | ClassPropertyParser.Json)[];
