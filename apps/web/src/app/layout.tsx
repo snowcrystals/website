@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import "../styles/markdown.css";
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import type React from "react";
 
@@ -10,10 +10,13 @@ import Providers from "./Providers";
 const inter = Inter({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-	themeColor: "#9bbdfe",
 	metadataBase: new URL("https://snowcrystals.dev"),
 	title: { template: "Snow Crystals - %s", default: "Snow Crystals" },
 	description: "Documentation for various npm packages built by ijsKoud"
+};
+
+export const viewport: Viewport = {
+	themeColor: "#9bbdfe"
 };
 
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
