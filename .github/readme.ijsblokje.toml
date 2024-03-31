@@ -5,4 +5,4 @@ version = "1.0.0"
 
 [variables]
 information = "Design stolen from [Discord.js](https://discordjs.dev). Why? Because we liked it! \"Beter goed gestolen dan slecht bedacht\" - Some Dutch guy"
-installation = "Install the dependencies using `yarn install`. Build using `yarn build`, start using `yarn workspace web run start`. Run development mode using `yarn start:dev`."
+installation = "Install the dependencies using `pnpm install`. Build using `pnpm build`, start using `pnpm run start --filter=web`. Run development mode using `pnpm start:dev`."
