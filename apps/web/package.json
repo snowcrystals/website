@@ -10,15 +10,15 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"next": "14.1.4",
+		"next": "14.2.1",
 		"react": "^18.2.0",
 		"react-custom-scrollbars-2": "^4.5.0",
 		"react-dom": "^18.2.0",
-		"typedoc": "0.25.12",
+		"typedoc": "0.25.13",
 		"typedoc-json-parser": "^9.0.1",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.0",
-		"lucide-react": "^0.365.0",
+		"lucide-react": "^0.368.0",
 		"next-themes": "^0.3.0",
 		"@radix-ui/react-dialog": "^1.0.5",
 		"@radix-ui/react-select": "^2.0.0",
